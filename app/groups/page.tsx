@@ -1,11 +1,11 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Users, Clock, MapPin, Mail, Phone } from 'lucide-react'
-import { getGroups } from '@/lib/pco'
+import { getGroups, PCOGroup } from '@/lib/pco'
 
 export default async function GroupsPage() {
-  let groups = []
-  let error = null
+  let groups: PCOGroup[] = []
+  let error: string | null = null
 
   try {
     const groupsData = await getGroups(50, 0)
