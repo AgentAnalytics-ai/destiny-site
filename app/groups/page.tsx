@@ -1,18 +1,59 @@
+"use client"
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Users, Clock, MapPin, Mail, Phone } from 'lucide-react'
-import { getGroups, PCOGroup } from '@/lib/pco'
+import { useEffect, useState } from 'react'
 
-export default async function GroupsPage() {
-  let groups: PCOGroup[] = []
-  let error: string | null = null
+interface PCOGroup {
+  id: string
+  attributes: {
+    name: string
+    description?: string
+    location?: string
+    day_of_week?: string
+    time?: string
+    contact_email?: string
+    contact_phone?: string
+    max_participants?: number
+    current_participants?: number
+  }
+}
 
-  try {
-    const groupsData = await getGroups(50, 0)
-    groups = groupsData || []
-  } catch (err) {
-    console.error('Failed to fetch groups:', err)
-    error = 'Failed to load groups'
+export default function GroupsPage() {
+  const [groups, setGroups] = useState<PCOGroup[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    async function fetchGroups() {
+      try {
+        const response = await fetch('/api/planning-center/groups')
+        const data = await response.json()
+        if (data.success) {
+          setGroups(data.data)
+        } else {
+          setError(data.error || 'Failed to load groups')
+        }
+      } catch (err) {
+        setError('Failed to load groups')
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchGroups()
+  }, [])
+
+  if (loading) {
+    return (
+      <div className="container mx-auto px-4 py-8">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-destiny-primary mx-auto"></div>
+          <p className="mt-4">Loading groups...</p>
+        </div>
+      </div>
+    )
   }
 
   return (
