@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
 import { site } from '@/lib/config/site.config'
-import { Calendar, MapPin, Users, ExternalLink } from 'lucide-react'
+import { Calendar, MapPin, ExternalLink } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Events',

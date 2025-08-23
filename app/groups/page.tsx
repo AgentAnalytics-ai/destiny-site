@@ -21,15 +21,15 @@ const groups = [
     churchCenterUrl: `${site.churchCenter.base}${site.churchCenter.groups}`,
   },
   {
-    name: 'Women\'s Bible Study',
-    description: 'Deep dive into God\'s Word with other women',
+    name: 'Women&#39;s Bible Study',
+    description: 'Deep dive into God&#39;s Word with other women',
     day: 'Wednesday',
     time: '6:30 PM',
     location: 'Fellowship Hall',
     churchCenterUrl: `${site.churchCenter.base}${site.churchCenter.groups}`,
   },
   {
-    name: 'Men\'s Group',
+    name: 'Men&#39;s Group',
     description: 'Build authentic relationships and grow spiritually',
     day: 'Thursday',
     time: '7:00 PM',
@@ -44,7 +44,7 @@ export default function GroupsPage() {
       <div className="text-center space-y-8 mb-16">
         <h1 className="text-4xl font-bold">Small Groups</h1>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          Find community and connection in our small groups. There's a place for everyone!
+          Find community and connection in our small groups. There&#39;s a place for everyone!
         </p>
       </div>
 
