@@ -1,16 +1,16 @@
 import type { Metadata } from 'next'
-import { site } from '@/lib/config/site.config'
 
 export const metadata: Metadata = {
-  title: 'Home',
-  description: site.seo?.description,
+  title: 'Destiny Church',
+  description: 'A place where everyone belongs.',
 }
 
 export default function HomePage() {
   return (
-    <div style={{ padding: '20px', backgroundColor: 'blue', color: 'white' }}>
-      <h1>HOMEPAGE IS WORKING</h1>
+    <div style={{ padding: '20px', backgroundColor: 'blue', color: 'white', fontSize: '20px' }}>
+      <h2>HOMEPAGE IS WORKING!</h2>
       <p>If you see this, the site is working!</p>
+      <p>Time: {new Date().toISOString()}</p>
     </div>
   )
 }
