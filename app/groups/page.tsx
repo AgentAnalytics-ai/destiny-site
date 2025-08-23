@@ -1,82 +1,92 @@
-"use client"
-
+import type { Metadata } from 'next'
+import Link from 'next/link'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
-import { Users, Clock, MapPin, ExternalLink } from 'lucide-react'
 import { site } from '@/lib/config/site.config'
+import { Users, MapPin, Calendar, ExternalLink } from 'lucide-react'
 
-// Sample groups data - in real implementation, this could come from Church Center API
+export const metadata: Metadata = {
+  title: 'Groups',
+  description: 'Find community and connection in our small groups.',
+}
+
 const groups = [
   {
-    id: 'young-adults',
-    title: 'Young Adults',
-    description: 'Ages 18-30',
+    name: 'Young Adults',
+    description: 'Connect with other young adults in your faith journey',
     day: 'Tuesday',
     time: '7:00 PM',
     location: 'Room 201',
-    churchCenterUrl: `${site.churchCenter.base}/groups/young-adults`,
+    churchCenterUrl: `${site.churchCenter.base}${site.churchCenter.groups}`,
   },
   {
-    id: 'womens-bible-study',
-    title: "Women's Bible Study",
-    description: 'All ages welcome',
-    day: 'Thursday',
-    time: '10:00 AM',
+    name: 'Women\'s Bible Study',
+    description: 'Deep dive into God\'s Word with other women',
+    day: 'Wednesday',
+    time: '6:30 PM',
     location: 'Fellowship Hall',
-    churchCenterUrl: `${site.churchCenter.base}/groups/womens-bible-study`,
+    churchCenterUrl: `${site.churchCenter.base}${site.churchCenter.groups}`,
   },
   {
-    id: 'mens-group',
-    title: "Men's Group",
-    description: 'Brotherhood and accountability',
-    day: 'Saturday',
-    time: '8:00 AM',
-    location: 'Conference Room',
-    churchCenterUrl: `${site.churchCenter.base}/groups/mens-group`,
+    name: 'Men\'s Group',
+    description: 'Build authentic relationships and grow spiritually',
+    day: 'Thursday',
+    time: '7:00 PM',
+    location: 'Room 105',
+    churchCenterUrl: `${site.churchCenter.base}${site.churchCenter.groups}`,
   },
 ]
 
 export default function GroupsPage() {
   return (
-    <Container className="py-8">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4">Small Groups</h1>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          Connect with others and grow in your faith through our small groups. 
-          Find a group that fits your schedule and interests.
+    <Container className="py-12">
+      <div className="text-center space-y-8 mb-16">
+        <h1 className="text-4xl font-bold">Small Groups</h1>
+        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          Find community and connection in our small groups. There's a place for everyone!
         </p>
       </div>
-      
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {groups.map((group) => (
-          <Card key={group.id} className="hover:shadow-lg transition-shadow">
+
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {groups.map((group, index) => (
+          <Card key={index} className="group hover:shadow-lg transition-shadow">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Users className="w-5 h-5 text-primary" />
-                {group.title}
+                <Users className="h-5 w-5 text-primary" />
+                {group.name}
               </CardTitle>
               <CardDescription>{group.description}</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                <Clock className="w-4 h-4" />
-                <span>{group.day} {group.time}</span>
+              <div className="space-y-2 text-sm text-muted-foreground">
+                <div className="flex items-center gap-2">
+                  <Calendar className="h-4 w-4" />
+                  {group.day} at {group.time}
+                </div>
+                <div className="flex items-center gap-2">
+                  <MapPin className="h-4 w-4" />
+                  {group.location}
+                </div>
               </div>
-              <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                <MapPin className="w-4 h-4" />
-                <span>{group.location}</span>
-              </div>
-              <Button 
-                className="w-full" 
-                onClick={() => window.open(group.churchCenterUrl, '_blank')}
-              >
-                Join Group
-                <ExternalLink className="w-4 h-4 ml-2" />
-              </Button>
+              <Link href={group.churchCenterUrl} target="_blank" rel="noopener noreferrer">
+                <Button className="w-full group">
+                  Join Group
+                  <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                </Button>
+              </Link>
             </CardContent>
           </Card>
         ))}
+      </div>
+
+      <div className="text-center mt-12">
+        <Link href={`${site.churchCenter.base}${site.churchCenter.groups}`} target="_blank" rel="noopener noreferrer">
+          <Button size="lg" variant="outline">
+            Find More Groups
+            <ExternalLink className="ml-2 h-4 w-4" />
+          </Button>
+        </Link>
       </div>
     </Container>
   )
