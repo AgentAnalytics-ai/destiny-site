@@ -6,6 +6,7 @@ module.exports = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
+    './content/**/*.{mdx,md}', // Add MDX support
   ],
   theme: {
     container: {
@@ -50,12 +51,6 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Destiny Church brand colors
-        destiny: {
-          primary: "#1e40af", // Blue
-          secondary: "#f59e0b", // Amber
-          accent: "#10b981", // Emerald
-        }
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -78,5 +73,8 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("@tailwindcss/typography"), // Add typography plugin
+  ],
 }

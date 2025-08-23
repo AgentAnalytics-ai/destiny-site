@@ -57,3 +57,31 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Subtle hover effects that feel premium */
+.card-hover {
+  @apply transition-all duration-300 ease-out;
+}
+
+.card-hover:hover {
+  @apply transform -translate-y-1 shadow-lg;
+}
+
+/* Gradient text that feels modern */
+.gradient-text {
+  @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+}
+
+/* Smooth button interactions */
+.btn-primary {
+  @apply relative overflow-hidden transition-all duration-300;
+}
+
+.btn-primary::before {
+  content: '';
+  @apply absolute inset-0 bg-white/20 transform scale-x-0 origin-left transition-transform duration-300;
+}
+
+.btn-primary:hover::before {
+  @apply scale-x-100;
+}

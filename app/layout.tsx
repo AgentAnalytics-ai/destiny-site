@@ -1,37 +1,35 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { Navigation } from '@/components/navigation'
-import { Footer } from '@/components/footer'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
+import { site } from '@/lib/config/site.config'
+import { SiteHeader } from '@/components/ui/navigation'
+import { SiteFooter } from '@/components/ui/footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Destiny Church - A place where everyone belongs',
-  description: 'A place where everyone belongs and everyone matters. Join us for worship, community, and growth.',
-  keywords: 'church, Oklahoma City, worship, community, Destiny Church',
-  authors: [{ name: 'Destiny Church' }],
+  metadataBase: new URL(process.env.SITE_URL ?? "http://localhost:3000"),
+  title: { 
+    default: site.name, 
+    template: site.seo?.titleTemplate ?? `%s | ${site.name}` 
+  },
+  description: site.seo?.description ?? 'A place where everyone belongs and everyone matters.',
   openGraph: {
-    title: 'Destiny Church',
-    description: 'A place where everyone belongs and everyone matters.',
-    url: 'https://www.destinyokc.com',
-    siteName: 'Destiny Church',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Destiny Church',
-      },
-    ],
-    locale: 'en_US',
     type: 'website',
+    locale: 'en_US',
+    url: process.env.SITE_URL ?? 'http://localhost:3000',
+    title: site.name,
+    description: site.seo?.description ?? 'A place where everyone belongs and everyone matters.',
+    siteName: site.name,
+    images: site.seo?.ogImage ? [site.seo.ogImage] : [],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Destiny Church',
-    description: 'A place where everyone belongs and everyone matters.',
-    images: ['/og-image.jpg'],
+    title: site.name,
+    description: site.seo?.description ?? 'A place where everyone belongs and everyone matters.',
+    // Remove the handle property - it's not supported in Next.js 15
   },
   robots: {
     index: true,
@@ -48,12 +46,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div className="min-h-screen flex flex-col">
-          <Navigation />
+          <SiteHeader />
           <main className="flex-1">
             {children}
           </main>
-          <Footer />
+          <SiteFooter />
         </div>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
