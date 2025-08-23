@@ -8,6 +8,9 @@ const withMDX = require('@next/mdx')({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Remove any static export settings
+  // output: 'export', // REMOVE THIS IF IT EXISTS
+  
   images: {
     remotePatterns: [
       {
