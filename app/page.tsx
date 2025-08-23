@@ -8,20 +8,28 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white">
-      <div className="container mx-auto px-4 py-20">
-        <h1 className="text-4xl font-bold text-center mb-8">
+    <div style={{ minHeight: '100vh', backgroundColor: 'white' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '80px 16px' }}>
+        <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', textAlign: 'center', marginBottom: '32px', color: '#1f2937' }}>
           Welcome to {site.name}
         </h1>
-        <p className="text-xl text-center text-gray-600 max-w-2xl mx-auto">
+        <p style={{ fontSize: '1.25rem', textAlign: 'center', color: '#6b7280', maxWidth: '600px', margin: '0 auto', lineHeight: '1.6' }}>
           A place where everyone belongs and everyone matters.
         </p>
-        <div className="text-center mt-8">
+        <div style={{ textAlign: 'center', marginTop: '32px' }}>
           <a 
             href={`${site.churchCenter.base}${site.churchCenter.planAVisitForm}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+            style={{
+              backgroundColor: '#2563eb',
+              color: 'white',
+              padding: '12px 24px',
+              borderRadius: '8px',
+              textDecoration: 'none',
+              display: 'inline-block',
+              fontWeight: '500'
+            }}
           >
             Plan a Visit
           </a>

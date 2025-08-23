@@ -8,7 +8,6 @@ const withMDX = require('@next/mdx')({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   images: {
     remotePatterns: [
       {
@@ -17,14 +16,8 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
-      {
-        protocol: 'https',
-        hostname: '*.vercel.app',
-        port: '',
-        pathname: '/**',
-      },
     ],
   },
 }
 
-module.exports = withMDX(nextConfig)
+module.exports = nextConfig
