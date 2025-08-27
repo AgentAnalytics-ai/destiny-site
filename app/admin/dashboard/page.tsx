@@ -3,8 +3,7 @@ import Link from 'next/link'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Container } from '@/components/ui/container'
 import { Button } from '@/components/ui/button'
-import { ExternalLink, Users, Calendar, CreditCard, Users2, Shield } from 'lucide-react'
-import { site } from '@/lib/config/site.config'
+import { ExternalLink, Users, Calendar, Users2, Shield } from 'lucide-react'
 import { PC_ADMIN } from '@/lib/config/pc-links'
 
 export const metadata: Metadata = {
