@@ -1,10 +1,3 @@
-import type { Metadata } from 'next'
-
-export const metadata: Metadata = {
-  title: 'Contact Us',
-  description: 'Get in touch with Destiny Christian Center.',
-}
-
 "use client";
 
 import { useState } from "react";
