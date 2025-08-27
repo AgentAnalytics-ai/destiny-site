@@ -7,10 +7,10 @@ const envSchema = z.object({
   PCO_APPLICATION_ID: z.string().optional(),
   PCO_SECRET: z.string().optional(),
   
-  // Church Center
-  CHURCH_CENTER_URL: z.string().url(),
+  // Church Center - make optional for build time
+  CHURCH_CENTER_URL: z.string().url().optional(),
   
-  // Email (Resend) for contact form
+  // Email (Resend) for contact form - make optional
   RESEND_API_KEY: z.string().optional(),
   CONTACT_TO: z.string().email().optional(),
   CONTACT_FROM: z.string().min(1).optional(),
