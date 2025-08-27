@@ -16,7 +16,7 @@ export async function sendContactEmail(data: {
     to: env.CONTACT_TO,
     from: env.CONTACT_FROM,
     subject: `New message from ${data.name}`,
-    replyTo: data.email,
+    reply_to: data.email, // Fixed: changed from replyTo to reply_to
     text: `Name: ${data.name}
 Email: ${data.email}
 Phone: ${data.phone ?? ""}
