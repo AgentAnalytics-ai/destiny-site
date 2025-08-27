@@ -31,14 +31,11 @@ export default function AdminDashboardPage() {
       <div className="space-y-8">
         {/* Header with Logo */}
         <div className="text-center space-y-6">
-          <div className="flex justify-center">
-            <Image
+          <div className="flex justify-center mb-6">
+            <img
               src="/images/logo/Logo-Destiny-RGB.png"
               alt="Destiny Christian Center"
-              width={250}
-              height={100}
-              className="h-24 w-auto object-contain"
-              priority
+              className="h-20 w-auto max-w-xs"
             />
           </div>
           <div className="space-y-4">
