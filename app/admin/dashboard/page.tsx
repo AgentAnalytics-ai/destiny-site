@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Image from 'next/image'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Container } from '@/components/ui/container'
 import { Button } from '@/components/ui/button'
@@ -29,21 +28,12 @@ export default function AdminDashboardPage() {
   return (
     <Container className="py-12">
       <div className="space-y-8">
-        {/* Header with Logo */}
-        <div className="text-center space-y-6">
-          <div className="flex justify-center mb-6">
-            <img
-              src="/images/logo/Logo-Destiny-RGB.png"
-              alt="Destiny Christian Center"
-              className="h-20 w-auto max-w-xs"
-            />
-          </div>
-          <div className="space-y-4">
-            <h1 className="text-4xl font-bold text-primary">Admin Dashboard</h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Quick access to Planning Center and Church Center tools
-            </p>
-          </div>
+        {/* Header */}
+        <div className="text-center space-y-4">
+          <h1 className="text-4xl font-bold">Admin Dashboard</h1>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Quick access to Planning Center and Church Center tools
+          </p>
         </div>
 
         {/* Quick Links */}
@@ -55,7 +45,7 @@ export default function AdminDashboardPage() {
                 key={link.label}
                 variant="outline"
                 asChild
-                className="h-auto p-4 flex flex-col items-center space-y-2 hover:shadow-md transition-all"
+                className="h-auto p-4 flex flex-col items-center space-y-2"
               >
                 <Link href={link.href} target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="h-5 w-5" />
@@ -74,18 +64,14 @@ export default function AdminDashboardPage() {
               const IconComponent = iconMap[section.id as keyof typeof iconMap] || Users
               
               return (
-                <Card key={section.id} className="hover:shadow-lg transition-shadow border-l-4 border-l-primary">
+                <Card key={section.id} className="hover:shadow-lg transition-shadow">
                   <CardHeader>
-                    <div className="flex items-center space-x-3">
-                      <div className="p-2 bg-primary/10 rounded-lg">
-                        <IconComponent className="h-5 w-5 text-primary" />
-                      </div>
+                    <div className="flex items-center space-x-2">
+                      <IconComponent className="h-5 w-5 text-primary" />
                       <div>
                         <CardTitle className="text-lg">{section.title}</CardTitle>
                         {section.owner && (
-                          <CardDescription className="text-sm font-medium">
-                            Owner: {section.owner}
-                          </CardDescription>
+                          <CardDescription>Owner: {section.owner}</CardDescription>
                         )}
                       </div>
                     </div>
@@ -97,7 +83,7 @@ export default function AdminDashboardPage() {
                         variant="ghost"
                         size="sm"
                         asChild
-                        className="w-full justify-start h-auto p-2 hover:bg-primary/5"
+                        className="w-full justify-start h-auto p-2"
                       >
                         <Link href={link.href} target="_blank" rel="noopener noreferrer">
                           <ExternalLink className="h-4 w-4 mr-2" />
