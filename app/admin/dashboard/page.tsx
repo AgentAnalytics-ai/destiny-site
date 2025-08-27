@@ -33,11 +33,11 @@ export default function AdminDashboardPage() {
         <div className="text-center space-y-6">
           <div className="flex justify-center">
             <Image
-              src="/images/logo/Destiny logo.jpg"
+              src="/images/logo/Logo-Destiny-RGB.png"
               alt="Destiny Christian Center"
-              width={200}
-              height={80}
-              className="h-20 w-auto object-contain"
+              width={250}
+              height={100}
+              className="h-24 w-auto object-contain"
               priority
             />
           </div>
