@@ -1,13 +1,13 @@
-"use client";
-
-import { useState } from "react";
 import type { Metadata } from 'next'
-import { site } from '@/lib/config/site.config'
 
 export const metadata: Metadata = {
   title: 'Contact Us',
   description: 'Get in touch with Destiny Christian Center.',
 }
+
+"use client";
+
+import { useState } from "react";
 
 export default function ContactPage() {
   const [status, setStatus] = useState<"idle"|"sending"|"sent"|"error">("idle");
