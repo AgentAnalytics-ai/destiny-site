@@ -47,7 +47,7 @@ export default function ContactPage() {
         >
           {status === "sending" ? "Sending…" : "Send"}
         </button>
-        {status === "sent" && <p className="text-green-600">Thanks! We'll be in touch.</p>}
+        {status === "sent" && <p className="text-green-600">Thanks! We&apos;ll be in touch.</p>}
         {status === "error" && <p className="text-red-600">Something went wrong. Please try again.</p>}
       </form>
     </main>

@@ -1,9 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardTitle } from '@/components/ui/card'
 import { Container } from '@/components/ui/container'
-import { ArrowRight, Calendar } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { cc } from '@/lib/services/churchCenter'
 
 export const metadata: Metadata = {
@@ -21,7 +20,7 @@ export default function EventsPage() {
               Events
             </h1>
             <p className="text-xl lg:text-2xl text-white/90">
-              See what's happening this month.
+              See what&apos;s happening this month.
             </p>
           </div>
         </Container>

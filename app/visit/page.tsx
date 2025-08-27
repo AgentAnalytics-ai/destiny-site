@@ -21,7 +21,7 @@ export default function VisitPage() {
           Plan Your Visit
         </h1>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          We'd love to have you join us! Plan your visit to Destiny Church and experience a welcoming community.
+          We&apos;d love to have you join us! Plan your visit to Destiny Church and experience a welcoming community.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button asChild size="lg" className="px-8">

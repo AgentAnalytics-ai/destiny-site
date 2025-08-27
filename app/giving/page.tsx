@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
-import { ArrowRight, Heart } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { site } from '@/lib/config/site.config'
 import { cc } from '@/lib/services/churchCenter'
 
