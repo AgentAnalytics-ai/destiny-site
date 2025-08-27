@@ -18,6 +18,32 @@ const nextConfig = {
       { protocol: "https", hostname: "img.youtube.com" },
     ],
   },
+  async redirects() {
+    const churchCenterUrl = process.env.CHURCH_CENTER_URL?.replace(/\/$/, "") || "https://destinyokc.churchcenter.com"
+    
+    return [
+      {
+        source: '/app',
+        destination: churchCenterUrl,
+        permanent: false,
+      },
+      {
+        source: '/give',
+        destination: `${churchCenterUrl}/giving`,
+        permanent: false,
+      },
+      {
+        source: '/events',
+        destination: `${churchCenterUrl}/calendar`,
+        permanent: false,
+      },
+      {
+        source: '/groups',
+        destination: `${churchCenterUrl}/groups`,
+        permanent: false,
+      },
+    ]
+  },
 }
 
 module.exports = withMDX(nextConfig)

@@ -25,7 +25,7 @@ export default function VisitPage() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button asChild size="lg" className="px-8">
-            <Link href={cc.form("REPLACE_WITH_FORM_ID")} target="_blank" rel="noopener noreferrer">
+            <Link href={cc.form("REPLACE_PLAN_FORM_ID")} target="_blank" rel="noopener noreferrer">
               Plan My Visit
               <ExternalLink className="ml-2 h-4 w-4" />
             </Link>
