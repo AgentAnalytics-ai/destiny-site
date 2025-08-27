@@ -1,89 +1,53 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardTitle } from '@/components/ui/card'
 import { Container } from '@/components/ui/container'
-import { site } from '@/lib/config/site.config'
-import { Calendar, MapPin, ExternalLink } from 'lucide-react'
+import { ArrowRight, Calendar } from 'lucide-react'
+import { cc } from '@/lib/services/churchCenter'
 
 export const metadata: Metadata = {
-  title: 'Events',
-  description: 'Join us for events and activities at Destiny Church.',
+  title: 'Events | Destiny Christian Center',
+  description: 'Join us for upcoming events and activities.',
 }
-
-const events = [
-  {
-    title: 'Sunday Service',
-    description: 'Join us for worship and teaching',
-    date: 'Every Sunday',
-    time: '9:00 AM & 11:00 AM',
-    location: 'Main Auditorium',
-    churchCenterUrl: `${site.churchCenter.base}${site.churchCenter.events}`,
-  },
-  {
-    title: 'Small Groups',
-    description: 'Connect with others in community',
-    date: 'Various Times',
-    time: 'Throughout the week',
-    location: 'Various Locations',
-    churchCenterUrl: `${site.churchCenter.base}${site.churchCenter.groups}`,
-  },
-]
 
 export default function EventsPage() {
   return (
-    <Container className="py-12">
-      <div className="text-center space-y-8 mb-16">
-        <h1 className="text-4xl font-bold">Events</h1>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          Join us for events, services, and activities that will help you grow in your faith.
-        </p>
-      </div>
+    <>
+      <section className="py-20 bg-gradient-to-br from-primary to-primary/90 text-white">
+        <Container>
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-5xl lg:text-7xl font-bold mb-6">
+              Events
+            </h1>
+            <p className="text-xl lg:text-2xl text-white/90">
+              See what's happening this month.
+            </p>
+          </div>
+        </Container>
+      </section>
 
-      <div className="grid md:grid-cols-2 gap-8">
-        {events.map((event, index) => (
-          <Card key={index} className="group hover:shadow-lg transition-shadow">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Calendar className="h-5 w-5 text-primary" />
-                {event.title}
-              </CardTitle>
-              <CardDescription>{event.description}</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="space-y-2 text-sm text-muted-foreground">
-                <div className="flex items-center gap-2">
-                  <Calendar className="h-4 w-4" />
-                  {event.date}
-                </div>
-                <div className="flex items-center gap-2">
-                  <Calendar className="h-4 w-4" />
-                  {event.time}
-                </div>
-                <div className="flex items-center gap-2">
-                  <MapPin className="h-4 w-4" />
-                  {event.location}
-                </div>
-              </div>
-              <Link href={event.churchCenterUrl} target="_blank" rel="noopener noreferrer">
-                <Button className="w-full group">
-                  Learn More
-                  <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                </Button>
+      <section className="py-20 bg-white">
+        <Container>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-6xl font-bold text-primary mb-6">
+              Upcoming Events
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              Join us for these exciting opportunities
+            </p>
+          </div>
+          
+          <div className="text-center">
+            <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
+              <Link href={cc.events()} target="_blank" rel="noopener noreferrer">
+                View Events on Church Center
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-
-      <div className="text-center mt-12">
-        <Link href={`${site.churchCenter.base}${site.churchCenter.events}`} target="_blank" rel="noopener noreferrer">
-          <Button size="lg" variant="outline">
-            View All Events
-            <ExternalLink className="ml-2 h-4 w-4" />
-          </Button>
-        </Link>
-      </div>
-    </Container>
+            </Button>
+          </div>
+        </Container>
+      </section>
+    </>
   )
 }

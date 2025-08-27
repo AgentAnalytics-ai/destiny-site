@@ -5,14 +5,12 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Container } from '@/components/ui/container'
 import { site } from '@/lib/config/site.config'
 import { MapPin, Clock, Car, Users, ExternalLink } from 'lucide-react'
+import { googleMapsLink } from '@/lib/utils/urls'
+import { cc } from '@/lib/services/churchCenter'
 
 export const metadata: Metadata = {
   title: 'Plan a Visit',
-  description: 'Plan your visit to Destiny Church. Find service times, directions, and what to expect.',
-  openGraph: {
-    title: 'Plan a Visit | Destiny Church',
-    description: 'Plan your visit to Destiny Church. Find service times, directions, and what to expect.',
-  },
+  description: site.seo.description,
 }
 
 export default function VisitPage() {
@@ -23,16 +21,25 @@ export default function VisitPage() {
           Plan Your Visit
         </h1>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          We&#39;d love to have you join us! Plan your visit to Destiny Church and experience a welcoming community.
+          We'd love to have you join us! Plan your visit to Destiny Church and experience a welcoming community.
         </p>
-        <Link href={site.churchCenter.planAVisitForm} target="_blank" rel="noopener noreferrer">
-          <Button size="lg" className="px-8">
-            Plan My Visit
-            <ExternalLink className="ml-2 h-4 w-4" />
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button asChild size="lg" className="px-8">
+            <Link href={cc.form("REPLACE_WITH_FORM_ID")} target="_blank" rel="noopener noreferrer">
+              Plan My Visit
+              <ExternalLink className="ml-2 h-4 w-4" />
+            </Link>
           </Button>
-        </Link>
+          <Button asChild size="lg" variant="outline" className="px-8">
+            <Link href={cc.checkins()} target="_blank" rel="noopener noreferrer">
+              Kids Check-Ins
+              <ExternalLink className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
       </div>
 
+      {/* Rest of the existing cards remain the same */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {/* Service Times Card */}
         <Card>
@@ -44,8 +51,10 @@ export default function VisitPage() {
           <CardContent className="space-y-2">
             <p className="text-muted-foreground">Join us for worship:</p>
             <ul className="list-disc list-inside space-y-1">
-              {site.serviceTimes.map((time, index) => (
-                <li key={index}>{time}</li>
+              {site.serviceTimes.map((service) => (
+                <li key={service.label}>
+                  <strong>{service.label}:</strong> {service.time}
+                </li>
               ))}
             </ul>
           </CardContent>
@@ -59,9 +68,12 @@ export default function VisitPage() {
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-2">
-            <p className="text-muted-foreground">{site.address}</p>
+            <p className="text-muted-foreground">
+              {site.contact.addressLine1}<br />
+              {site.contact.addressLine2}
+            </p>
             <Link
-              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.address)}`}
+              href={googleMapsLink(`${site.contact.addressLine1} ${site.contact.addressLine2}`)}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -102,11 +114,11 @@ export default function VisitPage() {
         </CardHeader>
         <CardContent>
           <p className="text-muted-foreground mb-4">
-            We&#39;ve got special parking and a welcome team ready to greet you.
+            We&apos;ve got special parking and a welcome team ready to greet you.
           </p>
-          <Link href={site.churchCenter.planAVisitForm} target="_blank" rel="noopener noreferrer">
+          <Link href="/visit" target="_blank" rel="noopener noreferrer">
             <Button className="w-full">
-              Let Us Know You&#39;re Coming!
+              Let Us Know You&apos;re Coming!
               <ExternalLink className="ml-2 h-4 w-4" />
             </Button>
           </Link>
