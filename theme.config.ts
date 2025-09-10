@@ -50,19 +50,19 @@ export const themeConfig = {
     { day: "Wednesday", time: "7:00 PM" },
   ],
   contact: {
-    address: "1234 Main St, Oklahoma City, OK 73101",
-    phone: "(405) 555-0123",
+    address: "3801 SE 29th St, Oklahoma City, OK 73115",
+    phone: "(405) 677-1451",
     email: "info@destinyokc.com",
   },
   social: {
     facebook: "https://facebook.com/destinyokc",
     instagram: "https://instagram.com/destinyokc",
-    youtube: "https://youtube.com/destinyokc",
+    youtube: "https://www.youtube.com/@DestinyChristianOKC",
   },
   external: {
     churchCenter: "https://destinyokc.churchcenter.com",
-    youVersion: "https://bible.com/events/123456",
-    soundCloud: "https://soundcloud.com/destinyokc",
+    youVersion: "https://www.bible.com/events/49489389",
+    soundCloud: "https://soundcloud.com/destinychristian",
   }
 }
 
