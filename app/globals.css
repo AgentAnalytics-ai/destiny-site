@@ -10,20 +10,24 @@
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 59 130 246; /* #3b82f6 as rgb */
+    /* Brighter, more vibrant primary - keeping the blue but making it more energetic */
+    --primary: 220 100% 60%; /* #0066ff - brighter blue */
     --primary-foreground: 0 0% 100%;
-    --secondary: 100 116 139; /* #64748b as rgb */
+    /* Warmer, more inviting secondary */
+    --secondary: 45 100% 60%; /* #ffb800 - bright golden yellow */
     --secondary-foreground: 0 0% 100%;
-    --accent: 220 38 38; /* #dc2626 as rgb */
+    /* More vibrant accent - keeping red but brighter */
+    --accent: 0 85% 60%; /* #ff3333 - brighter red */
     --accent-foreground: 0 0% 100%;
-    --muted: 215 16% 47%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Softer, warmer muted colors */
+    --muted: 220 15% 85%;
+    --muted-foreground: 220 10% 50%;
+    --border: 220 20% 90%;
+    --input: 220 20% 90%;
+    --ring: 220 100% 60%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --radius: 0.5rem;
+    --radius: 0.75rem; /* Slightly more rounded for friendlier feel */
   }
 }
 
@@ -73,6 +77,42 @@
   animation: fade-in-right 0.8s ease-out forwards;
 }
 
+/* Enhanced animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-bright {
+  0%, 100% { 
+    box-shadow: 0 0 0 0 rgba(0, 102, 255, 0.4);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 0 0 20px rgba(0, 102, 255, 0);
+    transform: scale(1.05);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-bright {
+  animation: pulse-bright 2s infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
 /* Smooth Scrolling */
 html {
   scroll-behavior: smooth;
@@ -109,6 +149,40 @@ html {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Add these new gradient utilities */
+.gradient-primary {
+  background: linear-gradient(135deg, #0066ff 0%, #00aaff 50%, #0066ff 100%);
+}
+
+.gradient-secondary {
+  background: linear-gradient(135deg, #ffb800 0%, #ffd700 50%, #ffb800 100%);
+}
+
+.gradient-warm {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ffb800 50%, #4ecdc4 100%);
+}
+
+.gradient-hero {
+  background: linear-gradient(135deg, #0066ff 0%, #00aaff 25%, #4ecdc4 50%, #ffb800 75%, #ff6b6b 100%);
+}
+
+/* Enhanced glass morphism */
+.glass-bright {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 102, 255, 0.1);
+}
+
+/* Bright shadow effects */
+.shadow-bright {
+  box-shadow: 0 10px 40px rgba(0, 102, 255, 0.15), 0 4px 20px rgba(255, 184, 0, 0.1);
+}
+
+.shadow-warm {
+  box-shadow: 0 10px 40px rgba(255, 107, 107, 0.15), 0 4px 20px rgba(255, 184, 0, 0.1);
 }
 
 body {

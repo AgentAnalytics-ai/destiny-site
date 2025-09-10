@@ -15,24 +15,31 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-white">
-        <Container className="text-center">
+      {/* Enhanced Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center gradient-hero text-white overflow-hidden">
+        {/* Add animated background elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-20 w-32 h-32 bg-white/10 rounded-full animate-float"></div>
+          <div className="absolute top-40 right-32 w-24 h-24 bg-white/10 rounded-full animate-float" style={{animationDelay: '1s'}}></div>
+          <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-white/10 rounded-full animate-float" style={{animationDelay: '2s'}}></div>
+        </div>
+        
+        <Container className="text-center relative z-10">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-6xl lg:text-8xl font-bold mb-8 animate-fade-in-up">
+            <h1 className="text-6xl lg:text-8xl font-bold mb-8 animate-fade-in-up drop-shadow-2xl">
               Find your next.
             </h1>
-            <p className="text-xl lg:text-2xl text-white/90 mb-12 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+            <p className="text-xl lg:text-2xl text-white/95 mb-12 animate-fade-in-up drop-shadow-lg" style={{animationDelay: '0.2s'}}>
               Join us every Sunday at 10:30 AM for powerful worship and life-changing messages
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{animationDelay: '0.4s'}}>
-              <Button asChild size="lg" className="bg-white text-primary hover:bg-gray-100 text-lg px-8 py-4 shadow-lg">
+              <Button asChild size="lg" className="bg-white text-primary hover:bg-gray-100 text-lg px-8 py-4 shadow-bright animate-pulse-bright">
                 <Link href="/visit">
                   Plan a Visit
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button asChild size="lg" className="bg-primary/20 backdrop-blur-sm border-2 border-white text-white hover:bg-primary/30 text-lg px-8 py-4 shadow-lg">
+              <Button asChild size="lg" className="glass-bright border-2 border-white text-white hover:bg-white/20 text-lg px-8 py-4 shadow-bright">
                 <Link href="/live">
                   <Play className="mr-2 h-5 w-5" />
                   Watch Live
@@ -115,8 +122,8 @@ export default function HomePage() {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-              <div className="aspect-video bg-gray-200">
+            <div className="bg-white rounded-3xl overflow-hidden shadow-warm hover:shadow-bright transition-all duration-300 hover:scale-105 border border-orange-100">
+              <div className="aspect-video bg-gradient-to-br from-blue-100 to-orange-100 relative">
                 <Image 
                   src="/images/congregation/worship.jpg" 
                   alt="Worship service at Destiny Church"
@@ -124,6 +131,7 @@ export default function HomePage() {
                   height={720}
                   className="w-full h-full object-cover"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
               </div>
               <div className="p-8">
                 <h3 className="text-xl font-bold text-primary mb-4">Casual Atmosphere</h3>
@@ -131,8 +139,8 @@ export default function HomePage() {
               </div>
             </div>
             
-            <div className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-              <div className="aspect-video bg-gray-200">
+            <div className="bg-white rounded-3xl overflow-hidden shadow-warm hover:shadow-bright transition-all duration-300 hover:scale-105 border border-yellow-100">
+              <div className="aspect-video bg-gradient-to-br from-yellow-100 to-red-100 relative">
                 <Image 
                   src="/images/congregation/community.jpg" 
                   alt="Community at Destiny Church"
@@ -140,15 +148,16 @@ export default function HomePage() {
                   height={720}
                   className="w-full h-full object-cover"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-secondary/20 to-transparent"></div>
               </div>
               <div className="p-8">
-                <h3 className="text-xl font-bold text-primary mb-4">Contemporary Worship</h3>
+                <h3 className="text-xl font-bold text-secondary mb-4">Contemporary Worship</h3>
                 <p className="text-muted-foreground">Powerful, modern worship music</p>
               </div>
             </div>
             
-            <div className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-              <div className="aspect-video bg-gray-200">
+            <div className="bg-white rounded-3xl overflow-hidden shadow-warm hover:shadow-bright transition-all duration-300 hover:scale-105 border border-green-100">
+              <div className="aspect-video bg-gradient-to-br from-green-100 to-blue-100 relative">
                 <Image 
                   src="/images/congregation/teaching.jpg" 
                   alt="Teaching at Destiny Church"
@@ -156,9 +165,10 @@ export default function HomePage() {
                   height={720}
                   className="w-full h-full object-cover"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent"></div>
               </div>
               <div className="p-8">
-                <h3 className="text-xl font-bold text-primary mb-4">Relevant Teaching</h3>
+                <h3 className="text-xl font-bold text-accent mb-4">Relevant Teaching</h3>
                 <p className="text-muted-foreground">Biblical messages for everyday life</p>
               </div>
             </div>

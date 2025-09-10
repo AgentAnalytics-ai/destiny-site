@@ -28,27 +28,30 @@ export default function AdminDashboardPage() {
   return (
     <Container className="py-12">
       <div className="space-y-8">
-        {/* Header */}
+        {/* Enhanced Header */}
         <div className="text-center space-y-4">
-          <h1 className="text-4xl font-bold">Admin Dashboard</h1>
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+            Admin Dashboard
+          </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Quick access to Planning Center and Church Center tools
           </p>
         </div>
 
-        {/* Quick Links */}
+        {/* Enhanced Quick Links */}
         <div className="space-y-4">
-          <h2 className="text-2xl font-semibold">Quick Links</h2>
+          <h2 className="text-2xl font-semibold text-primary">Quick Links</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {PC_ADMIN.quickLinks.map((link) => (
+            {PC_ADMIN.quickLinks.map((link, index) => (
               <Button
                 key={link.label}
                 variant="outline"
                 asChild
-                className="h-auto p-4 flex flex-col items-center space-y-2"
+                className="h-auto p-4 flex flex-col items-center space-y-2 border-2 hover:border-primary hover:bg-primary/5 transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-bright"
+                style={{animationDelay: `${index * 0.1}s`}}
               >
                 <Link href={link.href} target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="h-5 w-5" />
+                  <ExternalLink className="h-5 w-5 text-primary" />
                   <span className="text-sm font-medium">{link.label}</span>
                 </Link>
               </Button>
@@ -56,22 +59,22 @@ export default function AdminDashboardPage() {
           </div>
         </div>
 
-        {/* Sections */}
+        {/* Enhanced Sections */}
         <div className="space-y-6">
-          <h2 className="text-2xl font-semibold">Team Access</h2>
+          <h2 className="text-2xl font-semibold text-primary">Team Access</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {PC_ADMIN.sections.map((section) => {
+            {PC_ADMIN.sections.map((section, index) => {
               const IconComponent = iconMap[section.id as keyof typeof iconMap] || Users
               
               return (
-                <Card key={section.id} className="hover:shadow-lg transition-shadow">
+                <Card key={section.id} className="hover:shadow-bright transition-all duration-300 hover:scale-105 border-2 hover:border-primary/20 bg-gradient-to-br from-white to-primary/5">
                   <CardHeader>
                     <div className="flex items-center space-x-2">
                       <IconComponent className="h-5 w-5 text-primary" />
                       <div>
-                        <CardTitle className="text-lg">{section.title}</CardTitle>
+                        <CardTitle className="text-lg text-primary">{section.title}</CardTitle>
                         {section.owner && (
-                          <CardDescription>Owner: {section.owner}</CardDescription>
+                          <CardDescription className="text-secondary">Owner: {section.owner}</CardDescription>
                         )}
                       </div>
                     </div>
@@ -83,7 +86,7 @@ export default function AdminDashboardPage() {
                         variant="ghost"
                         size="sm"
                         asChild
-                        className="w-full justify-start h-auto p-2"
+                        className="w-full justify-start h-auto p-2 hover:bg-primary/10 hover:text-primary transition-colors"
                       >
                         <Link href={link.href} target="_blank" rel="noopener noreferrer">
                           <ExternalLink className="h-4 w-4 mr-2" />
