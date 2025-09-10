@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Container } from '@/components/ui/container'
-import { Play, Users, MessageCircle } from 'lucide-react'
+import { Play, Users, MessageCircle, ExternalLink } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Live Stream | Destiny Christian Center',
@@ -8,6 +8,9 @@ export const metadata: Metadata = {
 }
 
 export default function LivePage() {
+  // This would be dynamic based on whether they're actually live
+  const isLive = false; // You can make this dynamic later
+  
   return (
     <>
       <section className="py-20 bg-gradient-to-br from-primary to-primary/90 text-white">
@@ -30,30 +33,62 @@ export default function LivePage() {
               <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
                 <div className="bg-gray-100 p-6 border-b border-gray-200">
                   <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-                    <span className="font-semibold text-primary">Live Now - Sunday Service</span>
+                    {isLive ? (
+                      <>
+                        <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                        <span className="font-semibold text-primary">Live Now - Sunday Service</span>
+                      </>
+                    ) : (
+                      <>
+                        <div className="w-3 h-3 bg-gray-400 rounded-full"></div>
+                        <span className="font-semibold text-gray-600">Next Service: Sunday 10:30 AM</span>
+                      </>
+                    )}
                   </div>
                 </div>
                 <div className="aspect-video bg-gray-200">
-                  <div className="w-full h-full flex items-center justify-center bg-gray-100">
-                    <div className="text-center">
-                      <Play className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-                      <p className="text-gray-600 mb-4">Live stream will appear here when broadcasting</p>
-                      <a 
-                        href="https://www.youtube.com/@DestinyChristianOKC"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90"
-                      >
-                        <Play className="h-4 w-4 mr-2" />
-                        Watch on YouTube
-                      </a>
+                  {isLive ? (
+                    <iframe
+                      src="https://www.youtube.com/embed/live_stream?channel=UC_DESTINY_CHANNEL_ID&autoplay=1&mute=0"
+                      title="Destiny Church Live Stream"
+                      className="w-full h-full"
+                      allowFullScreen
+                      allow="autoplay; encrypted-media"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/5 to-secondary/5">
+                      <div className="text-center p-8">
+                        <Play className="h-16 w-16 text-primary/60 mx-auto mb-6" />
+                        <h3 className="text-2xl font-bold text-primary mb-4">Service Starts Soon!</h3>
+                        <p className="text-gray-600 mb-6 max-w-md">
+                          Join us live every Sunday at 10:30 AM for worship, teaching, and community.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                          <a 
+                            href="https://www.youtube.com/@DestinyChristianOKC"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
+                          >
+                            <Play className="h-4 w-4 mr-2" />
+                            Visit Our YouTube Channel
+                            <ExternalLink className="h-4 w-4 ml-2" />
+                          </a>
+                          <a 
+                            href="/visit"
+                            className="inline-flex items-center px-6 py-3 border-2 border-primary text-primary rounded-lg hover:bg-primary/5 transition-colors"
+                          >
+                            Plan Your Visit
+                          </a>
+                        </div>
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
               </div>
             </div>
 
+            {/* Rest of the existing chat and service info code remains the same */}
             <div className="space-y-6">
               <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
                 <div className="bg-gray-100 p-6 border-b border-gray-200">
@@ -103,7 +138,7 @@ export default function LivePage() {
                     <Users className="h-5 w-5 text-primary" />
                     <div>
                       <p className="font-semibold">Viewers</p>
-                      <p className="text-sm text-muted-foreground">1,247 watching</p>
+                      <p className="text-sm text-muted-foreground">{isLive ? "1,247 watching" : "Join us Sunday!"}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
