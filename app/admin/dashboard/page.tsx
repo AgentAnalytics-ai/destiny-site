@@ -63,7 +63,7 @@ export default function AdminDashboardPage() {
         <div className="space-y-6">
           <h2 className="text-2xl font-semibold text-primary">Team Access</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {PC_ADMIN.sections.map((section, index) => {
+            {PC_ADMIN.sections.map((section) => {
               const IconComponent = iconMap[section.id as keyof typeof iconMap] || Users
               
               return (
