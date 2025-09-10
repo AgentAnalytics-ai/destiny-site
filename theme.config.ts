@@ -10,9 +10,9 @@ export const themeConfig = {
     alt: "Destiny Church",
   },
   colors: {
-    primary: "#1e40af",
-    secondary: "#f59e0b", 
-    accent: "#10b981",
+    primary: "#0066cc",
+    secondary: "#64748b", 
+    accent: "#f97316",
   },
   typography: {
     fontFamily: {

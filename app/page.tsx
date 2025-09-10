@@ -15,13 +15,25 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      {/* Enhanced Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center gradient-hero text-white overflow-hidden">
-        {/* Add animated background elements */}
+      {/* OKC Community Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center text-white overflow-hidden">
+        {/* OKC Skyline Background */}
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-32 h-32 bg-white/10 rounded-full animate-float"></div>
-          <div className="absolute top-40 right-32 w-24 h-24 bg-white/10 rounded-full animate-float" style={{animationDelay: '1s'}}></div>
-          <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-white/10 rounded-full animate-float" style={{animationDelay: '2s'}}></div>
+          <Image 
+            src="/images/hero/okc-skyline-church.jpg" 
+            alt="Oklahoma City skyline with Destiny Church community"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Professional overlay - cohesive blue gradient instead of rainbow */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-primary/60 to-secondary/50"></div>
+          {/* Subtle animated elements */}
+          <div className="absolute inset-0">
+            <div className="absolute top-20 left-20 w-32 h-32 bg-white/5 rounded-full animate-float"></div>
+            <div className="absolute top-40 right-32 w-24 h-24 bg-white/5 rounded-full animate-float" style={{animationDelay: '1s'}}></div>
+            <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-white/5 rounded-full animate-float" style={{animationDelay: '2s'}}></div>
+          </div>
         </div>
         
         <Container className="text-center relative z-10">

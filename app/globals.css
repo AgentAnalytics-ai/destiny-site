@@ -10,21 +10,21 @@
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    /* Brighter, more vibrant primary - keeping the blue but making it more energetic */
-    --primary: 220 100% 60%; /* #0066ff - brighter blue */
+    /* Professional blue-based primary - more sophisticated */
+    --primary: 220 100% 50%; /* #0066cc - deeper, more professional blue */
     --primary-foreground: 0 0% 100%;
-    /* Warmer, more inviting secondary */
-    --secondary: 45 100% 60%; /* #ffb800 - bright golden yellow */
+    /* Complementary slate gray secondary - no more bright yellow */
+    --secondary: 220 15% 45%; /* #64748b - professional slate gray */
     --secondary-foreground: 0 0% 100%;
-    /* More vibrant accent - keeping red but brighter */
-    --accent: 0 85% 60%; /* #ff3333 - brighter red */
+    /* Warm accent - subtle orange instead of bright red */
+    --accent: 25 95% 60%; /* #f97316 - warm orange accent */
     --accent-foreground: 0 0% 100%;
     /* Softer, warmer muted colors */
     --muted: 220 15% 85%;
     --muted-foreground: 220 10% 50%;
     --border: 220 20% 90%;
     --input: 220 20% 90%;
-    --ring: 220 100% 60%;
+    --ring: 220 100% 50%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
     --radius: 0.75rem; /* Slightly more rounded for friendlier feel */
@@ -151,21 +151,21 @@ html {
   background-clip: text;
 }
 
-/* Add these new gradient utilities */
+/* Updated gradient utilities - more cohesive */
 .gradient-primary {
-  background: linear-gradient(135deg, #0066ff 0%, #00aaff 50%, #0066ff 100%);
+  background: linear-gradient(135deg, #0066cc 0%, #1e40af 50%, #0066cc 100%);
 }
 
 .gradient-secondary {
-  background: linear-gradient(135deg, #ffb800 0%, #ffd700 50%, #ffb800 100%);
+  background: linear-gradient(135deg, #64748b 0%, #475569 50%, #64748b 100%);
 }
 
 .gradient-warm {
-  background: linear-gradient(135deg, #ff6b6b 0%, #ffb800 50%, #4ecdc4 100%);
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #dc2626 100%);
 }
 
 .gradient-hero {
-  background: linear-gradient(135deg, #0066ff 0%, #00aaff 25%, #4ecdc4 50%, #ffb800 75%, #ff6b6b 100%);
+  background: linear-gradient(135deg, #0066cc 0%, #1e40af 25%, #64748b 50%, #f97316 75%, #ea580c 100%);
 }
 
 /* Enhanced glass morphism */
@@ -173,16 +173,16 @@ html {
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 32px rgba(0, 102, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 102, 204, 0.1);
 }
 
-/* Bright shadow effects */
+/* Professional shadow effects */
 .shadow-bright {
-  box-shadow: 0 10px 40px rgba(0, 102, 255, 0.15), 0 4px 20px rgba(255, 184, 0, 0.1);
+  box-shadow: 0 10px 40px rgba(0, 102, 204, 0.15), 0 4px 20px rgba(100, 116, 139, 0.1);
 }
 
 .shadow-warm {
-  box-shadow: 0 10px 40px rgba(255, 107, 107, 0.15), 0 4px 20px rgba(255, 184, 0, 0.1);
+  box-shadow: 0 10px 40px rgba(249, 115, 22, 0.15), 0 4px 20px rgba(234, 88, 12, 0.1);
 }
 
 body {
