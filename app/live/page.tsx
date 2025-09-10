@@ -35,12 +35,21 @@ export default function LivePage() {
                   </div>
                 </div>
                 <div className="aspect-video bg-gray-200">
-                  <iframe
-                    src="https://www.youtube.com/embed/live_stream?channel=YOUR_CHANNEL_ID"
-                    title="Destiny Church Live Stream"
-                    className="w-full h-full"
-                    allowFullScreen
-                  />
+                  <div className="w-full h-full flex items-center justify-center bg-gray-100">
+                    <div className="text-center">
+                      <Play className="h-16 w-16 text-gray-400 mx-auto mb-4" />
+                      <p className="text-gray-600 mb-4">Live stream will appear here when broadcasting</p>
+                      <a 
+                        href="https://www.youtube.com/@DestinyChristianOKC"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90"
+                      >
+                        <Play className="h-4 w-4 mr-2" />
+                        Watch on YouTube
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
