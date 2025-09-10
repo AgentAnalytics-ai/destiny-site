@@ -1,11 +1,9 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Container } from '@/components/ui/container'
-import { site } from '@/lib/config/site.config'
-import { ArrowRight, Heart, Users, BookOpen, Target, ExternalLink } from 'lucide-react'
+import { ArrowRight, Heart, Users, BookOpen, Target } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'About Us | Destiny Christian Center',
@@ -61,7 +59,7 @@ export default function AboutPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg mb-2">Love God</h3>
-                    <p className="text-muted-foreground">We're passionate about worship and growing closer to Him</p>
+                    <p className="text-muted-foreground">We&apos;re passionate about worship and growing closer to Him</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -101,7 +99,7 @@ export default function AboutPage() {
               What to Expect
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              When you visit Destiny Church, you'll find a welcoming community ready to embrace you exactly where you are.
+              When you visit Destiny Church, you&apos;ll find a welcoming community ready to embrace you exactly where you are.
             </p>
           </div>
           
@@ -198,7 +196,7 @@ export default function AboutPage() {
               <div className="p-6 bg-gradient-to-r from-accent/5 to-accent/10 rounded-xl border border-accent/20">
                 <h3 className="text-2xl font-bold text-accent mb-3">Service</h3>
                 <p className="text-muted-foreground">
-                  We're committed to serving our community and making a positive impact.
+                  We&apos;re committed to serving our community and making a positive impact.
                 </p>
               </div>
               
@@ -221,7 +219,7 @@ export default function AboutPage() {
               Get Connected
             </h2>
             <p className="text-xl text-muted-foreground mb-12">
-              Ready to take the next step? We'd love to help you get connected to our community.
+              Ready to take the next step? We&apos;d love to help you get connected to our community.
             </p>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -231,7 +229,7 @@ export default function AboutPage() {
                     <ArrowRight className="h-6 w-6 text-primary" />
                   </div>
                   <h3 className="font-semibold text-lg mb-2">Plan a Visit</h3>
-                  <p className="text-muted-foreground text-sm mb-4">Let us know you're coming</p>
+                  <p className="text-muted-foreground text-sm mb-4">Let us know you&apos;re coming</p>
                   <Button asChild size="sm" className="w-full">
                     <Link href="/visit">Get Started</Link>
                   </Button>
@@ -277,7 +275,7 @@ export default function AboutPage() {
                 </CardContent>
               </Card>
             </div>
-    </div>
+          </div>
         </Container>
       </section>
     </>

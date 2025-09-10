@@ -22,7 +22,7 @@ export default function GroupsPage() {
               Small Groups
             </h1>
             <p className="text-xl lg:text-2xl text-muted-foreground mb-8">
-              Find community and connection in our small groups. There's a place for everyone!
+              Find community and connection in our small groups. There&apos;s a place for everyone!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="px-8">
@@ -50,7 +50,7 @@ export default function GroupsPage() {
               Why Small Groups?
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Life is better together. Small groups provide a place to grow in faith, build friendships, and support one another through life's journey.
+              Life is better together. Small groups provide a place to grow in faith, build friendships, and support one another through life&apos;s journey.
             </p>
           </div>
           
@@ -78,7 +78,7 @@ export default function GroupsPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Study God's Word together and apply biblical truth to your everyday life.
+                  Study God&apos;s Word together and apply biblical truth to your everyday life.
                 </p>
               </CardContent>
             </Card>
@@ -92,7 +92,7 @@ export default function GroupsPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Find support during life's challenges and celebrate victories together.
+                  Find support during life&apos;s challenges and celebrate victories together.
                 </p>
               </CardContent>
             </Card>
@@ -230,7 +230,7 @@ export default function GroupsPage() {
               Ready to Find Your Group?
             </h2>
             <p className="text-xl text-white/90 mb-8">
-              Don't wait - your community is waiting for you. Browse our groups today and take the first step toward deeper connections.
+              Don&apos;t wait - your community is waiting for you. Browse our groups today and take the first step toward deeper connections.
             </p>
             <Button asChild size="lg" className="bg-white text-primary hover:bg-gray-100 px-8">
               <Link href={cc.groups()} target="_blank" rel="noopener noreferrer">

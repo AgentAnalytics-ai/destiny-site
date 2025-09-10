@@ -4,7 +4,6 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Container } from '@/components/ui/container'
 import { ArrowRight, Heart, Target, Users, ExternalLink } from 'lucide-react'
-import { site } from '@/lib/config/site.config'
 import { cc } from '@/lib/services/churchCenter'
 
 export const metadata: Metadata = {
@@ -51,7 +50,7 @@ export default function GivingPage() {
               Why We Give
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Generosity is at the heart of our faith. When we give, we're participating in God's work in our community and around the world.
+              Generosity is at the heart of our faith. When we give, we&apos;re participating in God&apos;s work in our community and around the world.
             </p>
           </div>
           
@@ -65,7 +64,7 @@ export default function GivingPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Your gifts help us show God's love through practical acts of service in our community.
+                  Your gifts help us show God&apos;s love through practical acts of service in our community.
                 </p>
               </CardContent>
             </Card>
@@ -79,7 +78,7 @@ export default function GivingPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Together, we're making a difference in Oklahoma City and beyond through outreach and ministry.
+                  Together, we&apos;re making a difference in Oklahoma City and beyond through outreach and ministry.
                 </p>
               </CardContent>
             </Card>
