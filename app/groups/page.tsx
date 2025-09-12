@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Container } from '@/components/ui/container'
@@ -73,7 +72,7 @@ export default function GroupsPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Study God's Word together and grow in your faith journey
+                  Study God&apos;s Word together and grow in your faith journey
                 </p>
               </CardContent>
             </Card>
@@ -87,7 +86,7 @@ export default function GroupsPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Find encouragement and support through life's challenges
+                  Find encouragement and support through life&apos;s challenges
                 </p>
               </CardContent>
             </Card>
@@ -101,7 +100,7 @@ export default function GroupsPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-primary mb-4">Types of Groups</h2>
             <p className="text-lg text-muted-foreground">
-              Find the group that's right for you
+              Find the group that&apos;s right for you
             </p>
           </div>
 

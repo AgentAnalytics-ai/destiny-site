@@ -89,7 +89,7 @@ export default function EventsPage() {
                     <span>3801 SE 29th St, Oklahoma City, OK</span>
                   </div>
                   <p className="text-muted-foreground">
-                    Deep dive into God's Word with discussion and fellowship
+                    Deep dive into God&apos;s Word with discussion and fellowship
                   </p>
                   <Button variant="outline" asChild>
                     <Link href="/visit">Plan Your Visit</Link>
@@ -184,7 +184,7 @@ export default function EventsPage() {
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold mb-4">Stay Connected</h2>
             <p className="text-xl mb-8 opacity-90">
-              Don't miss out on upcoming events and activities
+              Don&apos;t miss out on upcoming events and activities
             </p>
             <Button 
               size="lg" 
