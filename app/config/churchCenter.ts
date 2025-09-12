@@ -14,6 +14,6 @@ export const CC = {
     groups: "/groups",
     checkin: "/check-ins",
     plan: "/services",
-    prayer: "/people/forms/123456" // You'll need to get the actual form ID
+    prayer: "/people/forms/123456" // TODO: Get real prayer form ID from Church Center
   }
 }

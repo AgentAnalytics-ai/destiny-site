@@ -37,6 +37,7 @@ export const themeConfig = {
       { name: "Groups", href: "/groups" },
       { name: "Sermons", href: "/sermons" },
       { name: "Giving", href: "/give" },
+      { name: "Team Portal", href: "/team" },
       { name: "App", href: "/app" },
       { name: "About", href: "/about" },
       { name: "Beliefs", href: "/beliefs" },
