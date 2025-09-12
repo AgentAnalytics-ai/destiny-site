@@ -1,0 +1,55 @@
+﻿{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="py-16 bg-gradient-to-br from-primary/10 via-primary/5 to-secondary/10">
+    <div class="max-w-4xl mx-auto text-center px-4">
+        <div class="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6">
+            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+            </svg>
+        </div>
+        <h1 class="text-4xl lg:text-5xl font-bold text-primary mb-6">Upcoming Events</h1>
+        <p class="text-xl text-gray-600 mb-8">Join us for worship, fellowship, and community events</p>
+        <button onclick="openEvents()" class="bg-primary text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary/90 transition-colors">
+            View All Events
+        </button>
+    </div>
+</section>
+
+<!-- Regular Services -->
+<section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-primary mb-4">Regular Services</h2>
+            <p class="text-lg text-gray-600">Join us every week for worship and fellowship</p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div class="text-center p-6 border rounded-lg">
+                <h3 class="text-2xl font-semibold mb-4">Sunday Service</h3>
+                <div class="space-y-2 mb-4">
+                    <p class="text-lg font-semibold text-primary">10:30 AM</p>
+                    <p class="text-gray-600">3801 SE 29th St, Oklahoma City, OK</p>
+                </div>
+                <p class="text-gray-600">Join us for worship, teaching, and community</p>
+            </div>
+            
+            <div class="text-center p-6 border rounded-lg">
+                <h3 class="text-2xl font-semibold mb-4">Wednesday Bible Study</h3>
+                <div class="space-y-2 mb-4">
+                    <p class="text-lg font-semibold text-primary">7:00 PM</p>
+                    <p class="text-gray-600">3801 SE 29th St, Oklahoma City, OK</p>
+                </div>
+                <p class="text-gray-600">Deep dive into God's Word with discussion and fellowship</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function openEvents() {
+    window.open('https://destinyokc.churchcenter.com/registrations', '_blank');
+}
+</script>
+{% endblock %}

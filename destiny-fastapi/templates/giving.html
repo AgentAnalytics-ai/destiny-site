@@ -1,0 +1,69 @@
+﻿{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="py-16 bg-gradient-to-br from-primary/10 via-primary/5 to-secondary/10">
+    <div class="max-w-4xl mx-auto text-center px-4">
+        <div class="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6">
+            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"/>
+            </svg>
+        </div>
+        <h1 class="text-4xl lg:text-5xl font-bold text-primary mb-6">Give Online</h1>
+        <p class="text-xl text-gray-600 mb-8">Support our mission and ministries through secure online giving</p>
+        <button onclick="openGiving()" class="bg-primary text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary/90 transition-colors">
+            Give Now
+        </button>
+    </div>
+</section>
+
+<!-- Why Give Section -->
+<section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-primary mb-4">Why We Give</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                Your generosity helps us reach our community and beyond with the love of Christ
+            </p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="text-center">
+                <div class="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full mb-4">
+                    <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Local Impact</h3>
+                <p class="text-gray-600">Supporting our community outreach, food pantry, and local mission work</p>
+            </div>
+            
+            <div class="text-center">
+                <div class="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full mb-4">
+                    <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Global Mission</h3>
+                <p class="text-gray-600">Partnering with missionaries and organizations around the world</p>
+            </div>
+            
+            <div class="text-center">
+                <div class="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full mb-4">
+                    <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Ministry Growth</h3>
+                <p class="text-gray-600">Expanding our facilities and programs to serve more people</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function openGiving() {
+    window.open('https://destinyokc.churchcenter.com/giving', '_blank');
+}
+</script>
+{% endblock %}
