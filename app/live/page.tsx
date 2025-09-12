@@ -7,9 +7,24 @@ export const metadata: Metadata = {
   description: 'Join us live every Sunday at 10:30 AM',
 }
 
-export default function LivePage() {
-  // This would be dynamic based on whether they're actually live
-  const isLive = false; // You can make this dynamic later
+// This will automatically check if they're live
+async function checkIfLive() {
+  try {
+    // YouTube API call to check if channel is live
+    const response = await fetch(
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UC_DESTINY_CHANNEL_ID&type=video&eventType=live&key=${process.env.YOUTUBE_API_KEY}`,
+      { next: { revalidate: 30 } } // Check every 30 seconds
+    );
+    const data = await response.json();
+    return data.items && data.items.length > 0;
+  } catch (error) {
+    console.error('Error checking live status:', error);
+    return false;
+  }
+}
+
+export default async function LivePage() {
+  const isLive = await checkIfLive();
   
   return (
     <>
@@ -88,7 +103,7 @@ export default function LivePage() {
               </div>
             </div>
 
-            {/* Rest of the existing chat and service info code remains the same */}
+            {/* Rest of the existing code remains the same */}
             <div className="space-y-6">
               <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
                 <div className="bg-gray-100 p-6 border-b border-gray-200">

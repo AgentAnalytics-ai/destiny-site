@@ -23,20 +23,20 @@ export const themeConfig = {
   navigation: {
     main: [
       { name: "Home", href: "/" },
-      { name: "Plan a Visit", href: "/plan-a-visit" },
+      { name: "Plan a Visit", href: "/visit" },
       { name: "Events", href: "/events" },
       { name: "Groups", href: "/groups" },
       { name: "Sermons", href: "/sermons" },
-      { name: "Giving", href: "/giving" },
+      { name: "Giving", href: "/give" }, // Updated to use /give route
       { name: "About", href: "/about" },
       { name: "Contact", href: "/contact" },
     ],
     footer: [
-      { name: "Plan a Visit", href: "/plan-a-visit" },
+      { name: "Plan a Visit", href: "/visit" },
       { name: "Events", href: "/events" },
       { name: "Groups", href: "/groups" },
       { name: "Sermons", href: "/sermons" },
-      { name: "Giving", href: "/giving" },
+      { name: "Giving", href: "/give" }, // Updated to use /give route
       { name: "App", href: "/app" },
       { name: "About", href: "/about" },
       { name: "Beliefs", href: "/beliefs" },
