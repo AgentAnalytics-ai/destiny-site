@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { Container } from '@/components/ui/container'
 import { Play, Users, MessageCircle, ExternalLink } from 'lucide-react'
 
@@ -89,12 +90,12 @@ export default async function LivePage() {
                             Visit Our YouTube Channel
                             <ExternalLink className="h-4 w-4 ml-2" />
                           </a>
-                          <a 
+                          <Link 
                             href="/visit"
                             className="inline-flex items-center px-6 py-3 border-2 border-primary text-primary rounded-lg hover:bg-primary/5 transition-colors"
                           >
                             Plan Your Visit
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>

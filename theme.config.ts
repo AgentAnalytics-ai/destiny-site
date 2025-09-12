@@ -27,7 +27,7 @@ export const themeConfig = {
       { name: "Events", href: "/events" },
       { name: "Groups", href: "/groups" },
       { name: "Sermons", href: "/sermons" },
-      { name: "Giving", href: "/give" }, // Updated to use /give route
+      { name: "Giving", href: "/give" },
       { name: "About", href: "/about" },
       { name: "Contact", href: "/contact" },
     ],
@@ -36,7 +36,7 @@ export const themeConfig = {
       { name: "Events", href: "/events" },
       { name: "Groups", href: "/groups" },
       { name: "Sermons", href: "/sermons" },
-      { name: "Giving", href: "/give" }, // Updated to use /give route
+      { name: "Giving", href: "/give" },
       { name: "App", href: "/app" },
       { name: "About", href: "/about" },
       { name: "Beliefs", href: "/beliefs" },
