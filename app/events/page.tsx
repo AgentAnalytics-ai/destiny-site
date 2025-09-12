@@ -1,16 +1,10 @@
 "use client"
 
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Container } from '@/components/ui/container'
 import { Calendar, MapPin, Clock, ArrowRight, Users, Heart } from 'lucide-react'
-
-export const metadata: Metadata = {
-  title: 'Events | Destiny Christian Center',
-  description: 'Join us for upcoming events and activities',
-}
 
 export default function EventsPage() {
   return (

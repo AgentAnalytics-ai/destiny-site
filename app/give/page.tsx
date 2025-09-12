@@ -1,16 +1,10 @@
 "use client"
 
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Container } from '@/components/ui/container'
 import { Heart, CreditCard, Smartphone, Users, Target, ArrowRight } from 'lucide-react'
-
-export const metadata: Metadata = {
-  title: 'Give | Destiny Christian Center',
-  description: 'Support our mission and ministries through online giving',
-}
 
 export default function GivePage() {
   return (

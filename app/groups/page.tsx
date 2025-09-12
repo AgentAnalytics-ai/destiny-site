@@ -1,15 +1,9 @@
 "use client"
 
-import type { Metadata } from 'next'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Container } from '@/components/ui/container'
 import { Users, Calendar, MapPin, ArrowRight, Heart, BookOpen } from 'lucide-react'
-
-export const metadata: Metadata = {
-  title: 'Small Groups | Destiny Christian Center',
-  description: 'Find community and connection in our small groups',
-}
 
 export default function GroupsPage() {
   return (
