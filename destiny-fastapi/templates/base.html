@@ -19,36 +19,78 @@
         }
     </script>
 </head>
-<body class="bg-gray-50">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-lg">
+<body class="bg-white">
+    <!-- Navigation - Match Next.js exactly -->
+    <header class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-lg">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between items-center py-4">
-                <div class="flex items-center">
-                    <span class="text-xl font-bold text-primary">Destiny Church</span>
+            <div class="flex h-16 items-center justify-between">
+                <div class="flex lg:flex-1">
+                    <a href="/" class="-m-1.5 p-1.5">
+                        <span class="text-xl font-bold text-primary">DESTINYOKC.COM</span>
+                    </a>
                 </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="/" class="text-gray-700 hover:text-primary">Home</a>
-                    <a href="/visit" class="text-gray-700 hover:text-primary">Plan a Visit</a>
-                    <a href="/events" class="text-gray-700 hover:text-primary">Events</a>
-                    <a href="/groups" class="text-gray-700 hover:text-primary">Groups</a>
-                    <a href="/give" class="text-gray-700 hover:text-primary">Giving</a>
-                    <a href="/about" class="text-gray-700 hover:text-primary">About</a>
+                
+                <nav class="hidden lg:flex lg:gap-x-8">
+                    <a href="/" class="text-sm font-semibold text-primary hover:text-secondary transition-colors uppercase tracking-wide">Home</a>
+                    <a href="/about" class="text-sm font-semibold text-primary hover:text-secondary transition-colors uppercase tracking-wide">About</a>
+                    <a href="/groups" class="text-sm font-semibold text-primary hover:text-secondary transition-colors uppercase tracking-wide">Groups</a>
+                    <a href="/messages" class="text-sm font-semibold text-primary hover:text-secondary transition-colors uppercase tracking-wide">Messages</a>
+                    <a href="/live" class="text-sm font-semibold text-primary hover:text-secondary transition-colors uppercase tracking-wide">Live</a>
+                    <a href="/events" class="text-sm font-semibold text-primary hover:text-secondary transition-colors uppercase tracking-wide">Events</a>
+                    <a href="/resource" class="text-sm font-semibold text-primary hover:text-secondary transition-colors uppercase tracking-wide">Resource</a>
+                    <a href="/contact" class="text-sm font-semibold text-primary hover:text-secondary transition-colors uppercase tracking-wide">Contact</a>
+                </nav>
+                
+                <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+                    <a href="/give" class="bg-secondary hover:bg-secondary/90 text-white font-semibold px-4 py-2 rounded-lg transition-colors">
+                        GIVING
+                    </a>
                 </div>
             </div>
         </div>
-    </nav>
+    </header>
 
     <!-- Main Content -->
     <main>
         {% block content %}{% endblock %}
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-primary text-white py-8">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p>&copy; 2024 Destiny Church. All rights reserved.</p>
-            <p>3801 SE 29th St, Oklahoma City, OK 73115 | (405) 677-1451</p>
+    <!-- Footer - Match Next.js exactly -->
+    <footer class="bg-primary text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Destiny Church</h3>
+                    <p class="text-white/80 mb-2">3801 SE 29th St.</p>
+                    <p class="text-white/80 mb-2">Oklahoma City, OK 73115</p>
+                    <p class="text-white/80">(405) 677-1451</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Service Times</h4>
+                    <p class="text-white/80 mb-2">Sunday: 10:30 AM</p>
+                    <p class="text-white/80">Wednesday: 7:00 PM</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <div class="space-y-2">
+                        <a href="/about" class="block text-white/80 hover:text-white transition-colors">About</a>
+                        <a href="/groups" class="block text-white/80 hover:text-white transition-colors">Groups</a>
+                        <a href="/events" class="block text-white/80 hover:text-white transition-colors">Events</a>
+                        <a href="/give" class="block text-white/80 hover:text-white transition-colors">Giving</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Connect</h4>
+                    <div class="space-y-2">
+                        <a href="/contact" class="block text-white/80 hover:text-white transition-colors">Contact</a>
+                        <a href="/visit" class="block text-white/80 hover:text-white transition-colors">Plan a Visit</a>
+                        <a href="/live" class="block text-white/80 hover:text-white transition-colors">Watch Live</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/20 mt-8 pt-8 text-center">
+                <p class="text-white/80">&copy; 2024 Destiny Church. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 </body>
