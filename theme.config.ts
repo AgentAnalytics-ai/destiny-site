@@ -7,7 +7,7 @@ export const themeConfig = {
   logo: {
     primary: "/logo-primary.svg",
     brand: "/logo-brand.svg",
-    alt: "Destiny Church",
+    alt: "Destiny Church Logo",
   },
   colors: {
     primary: "#0066cc",
@@ -27,7 +27,7 @@ export const themeConfig = {
       { name: "Events", href: "/events" },
       { name: "Groups", href: "/groups" },
       { name: "Sermons", href: "/sermons" },
-      { name: "Giving", href: "/give" },
+      { name: "Giving", href: "/giving" }, // Changed to /giving for consistency
       { name: "About", href: "/about" },
       { name: "Contact", href: "/contact" },
     ],
@@ -36,7 +36,7 @@ export const themeConfig = {
       { name: "Events", href: "/events" },
       { name: "Groups", href: "/groups" },
       { name: "Sermons", href: "/sermons" },
-      { name: "Giving", href: "/give" },
+      { name: "Giving", href: "/giving" }, // Changed to /giving for consistency
       { name: "Team Portal", href: "/team" },
       { name: "App", href: "/app" },
       { name: "About", href: "/about" },
