@@ -11,24 +11,112 @@
 }
 
 * {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-/* Match Planning Center's exact button styles */
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+/* Custom utility classes for consistent design */
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 .btn-primary {
-  background-color: var(--primary);
-  color: white;
-  border-radius: 8px;
-  padding: 12px 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
   font-weight: 600;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-size: 1rem;
+  color: #ffffff;
+  background-color: var(--primary);
+  transition: background-color 0.2s ease-in-out;
 }
 
 .btn-primary:hover {
-  background-color: #0052a3;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+  background-color: #005bb5; /* Slightly darker primary */
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.border-primary {
+  border-color: var(--primary);
+}
+
+.text-secondary {
+  color: var(--secondary);
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
+}
+
+.border-secondary {
+  border-color: var(--secondary);
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.bg-accent {
+  background-color: var(--accent);
+}
+
+.border-accent {
+  border-color: var(--accent);
+}
+
+.text-foreground {
+  color: var(--foreground);
+}
+
+.bg-background {
+  background-color: var(--background);
+}
+
+.text-muted {
+  color: var(--muted);
+}
+
+.gradient-primary {
+  background: linear-gradient(to right, var(--primary), var(--accent));
+}
+
+.gradient-secondary {
+  background: linear-gradient(to right, var(--secondary), var(--muted));
+}
+
+.shadow-lg-primary {
+  box-shadow: 0 10px 15px -3px rgba(var(--primary-rgb), 0.1), 0 4px 6px -2px rgba(var(--primary-rgb), 0.05);
 }

@@ -19,17 +19,10 @@ module.exports = {
         sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       borderRadius: {
-        'lg': '8px',
-        'xl': '12px',
+        'xl': '0.75rem',
+        '2xl': '1rem',
+        '3xl': '1.5rem',
       },
-      boxShadow: {
-        'soft': '0 1px 3px rgba(0, 0, 0, 0.1)',
-        'medium': '0 4px 12px rgba(0, 0, 0, 0.15)',
-      },
-      spacing: {
-        '18': '4.5rem',
-        '88': '22rem',
-      }
     },
   },
   plugins: [],

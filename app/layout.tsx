@@ -1,13 +1,13 @@
 ﻿import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import Navigation from '@/components/ui/navigation'
+import Navigation from '@/components/ui/navigation' // Corrected import
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Destiny Church - Oklahoma City',
-  description: 'Where Hope, Faith, and Purpose Come Alive',
+  description: 'A vibrant church community in Oklahoma City.',
 }
 
 export default function RootLayout({
@@ -18,8 +18,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navigation />
-        {children}
+        <Navigation /> {/* Use the Navigation component */}
+        <main>{children}</main>
       </body>
     </html>
   )
