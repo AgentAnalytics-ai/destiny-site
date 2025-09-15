@@ -1,7 +1,7 @@
 ﻿import type { Metadata } from 'next'
 import { Inter, DM_Serif_Display } from 'next/font/google'
 import './globals.css'
-import Navigation from '@/components/ui/navigation' // Fixed: default import
+import Navigation from '@/components/ui/navigation'
 import { SiteFooter } from '@/components/ui/footer'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={${inter.variable} }>
       <body className={inter.className}>
-        <Navigation /> {/* Fixed: use Navigation instead of SiteHeader */}
+        <Navigation />
         <main>{children}</main>
         <SiteFooter />
         <Analytics />
