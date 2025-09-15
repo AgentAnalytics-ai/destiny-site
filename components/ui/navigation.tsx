@@ -7,20 +7,27 @@ export default function Navigation() {
     <nav className="bg-white border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24">
-          {/* Logo - Try different logo file */}
+          {/* Logo - Try multiple approaches */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <img
-                src="/images/logo/Logo-Destiny-RGB.png"
+                src="/images/logo/destiny-logo.png"
                 alt="Destiny Church"
                 className="h-16 w-auto"
                 onError={(e) => {
-                  console.log('Logo failed to load:', e.currentTarget.src)
-                  // Fallback to text if image fails
-                  e.currentTarget.style.display = 'none'
-                  const nextElement = e.currentTarget.nextElementSibling as HTMLElement
-                  if (nextElement) {
-                    nextElement.style.display = 'block'
+                  const target = e.target as HTMLImageElement;
+                  console.log('Failed to load:', target.src);
+                  
+                  // Try different file names
+                  if (target.src.includes('destiny-logo.png')) {
+                    target.src = '/images/logo/Logo-Destiny-RGB.png';
+                  } else if (target.src.includes('Logo-Destiny-RGB.png')) {
+                    target.src = '/images/logo/logo-primary.svg.png';
+                  } else {
+                    // Show text fallback
+                    target.style.display = 'none';
+                    const fallback = target.nextElementSibling as HTMLElement;
+                    if (fallback) fallback.style.display = 'block';
                   }
                 }}
               />
@@ -28,15 +35,13 @@ export default function Navigation() {
             </Link>
           </div>
           
-          {/* Navigation Links - Clean and simple */}
+          {/* Navigation Links */}
           <nav className="hidden md:flex space-x-8">
             <Link href="/" className="text-gray-900 hover:text-blue-600 font-medium">Home</Link>
             <Link href="/giving" className="text-gray-900 hover:text-blue-600 font-medium">Give</Link>
             <Link href="/groups" className="text-gray-900 hover:text-blue-600 font-medium">Groups</Link>
             <Link href="/contact" className="text-gray-900 hover:text-blue-600 font-medium">Contact</Link>
           </nav>
-          
-          {/* REMOVED: The 3 icons (bell, chat, user avatar) */}
         </div>
       </div>
     </nav>
