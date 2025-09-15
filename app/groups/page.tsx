@@ -50,7 +50,7 @@ export default function GroupsPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-2">Growth</h3>
-              <p className="text-muted">Study God's Word together and grow in your relationship with Christ</p>
+              <p className="text-muted">Study God&apos;s Word together and grow in your relationship with Christ</p>
             </div>
 
             <div className="bg-white p-8 rounded-xl shadow-soft border border-gray-200 text-center">
@@ -60,7 +60,7 @@ export default function GroupsPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-2">Support</h3>
-              <p className="text-muted">Find encouragement and support through life's challenges</p>
+              <p className="text-muted">Find encouragement and support through life&apos;s challenges</p>
             </div>
           </div>
         </div>

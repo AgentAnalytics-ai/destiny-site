@@ -39,7 +39,7 @@ export default function EventsPage() {
             </div>
             <div className="bg-white p-8 rounded-xl shadow-soft border border-gray-200 text-center">
               <h3 className="text-xl font-semibold text-primary mb-2">Bible Studies</h3>
-              <p className="text-muted">Deep dive into God's Word</p>
+              <p className="text-muted">Deep dive into God&apos;s Word</p>
             </div>
             <div className="bg-white p-8 rounded-xl shadow-soft border border-gray-200 text-center">
               <h3 className="text-xl font-semibold text-primary mb-2">Community Events</h3>
