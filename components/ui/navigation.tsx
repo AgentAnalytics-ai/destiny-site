@@ -1,18 +1,27 @@
 ﻿"use client"
 
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Navigation() {
   return (
     <nav className="bg-white border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo - Match Church Center style */}
+          {/* Logo - Replace text with actual logo */}
           <div className="flex items-center">
-            <span className="text-2xl font-bold text-blue-600">DESTINY</span>
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/images/logo/destiny-logo.png"
+                alt="Destiny Church"
+                width={120}
+                height={40}
+                className="h-10 w-auto"
+              />
+            </Link>
           </div>
           
-          {/* Navigation Links - Match Church Center exactly */}
+          {/* Rest of navigation stays the same */}
           <nav className="hidden md:flex space-x-8">
             <Link href="/" className="text-gray-900 hover:text-blue-600 font-medium">Home</Link>
             <Link href="/giving" className="text-gray-900 hover:text-blue-600 font-medium">Give</Link>
