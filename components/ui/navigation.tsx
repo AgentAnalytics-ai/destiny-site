@@ -20,7 +20,10 @@ export default function Navigation() {
                 onError={(e) => {
                   // Fallback to text if image fails
                   e.currentTarget.style.display = 'none'
-                  e.currentTarget.nextElementSibling.style.display = 'block'
+                  const nextElement = e.currentTarget.nextElementSibling as HTMLElement
+                  if (nextElement) {
+                    nextElement.style.display = 'block'
+                  }
                 }}
               />
               <span className="text-2xl font-bold text-blue-600 hidden">DESTINY</span>
