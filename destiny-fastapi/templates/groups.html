@@ -12,18 +12,48 @@
         <h1 class="text-4xl lg:text-5xl font-bold text-primary mb-6">Small Groups</h1>
         <p class="text-xl text-gray-600 mb-8">Find community and connection in our small groups</p>
         <button onclick="openGroups()" class="bg-primary text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary/90 transition-colors">
-            Browse Groups
+            Find a Group
         </button>
     </div>
 </section>
 
-<!-- Why Groups Section -->
+<!-- Real Groups from Planning Center -->
+{% if groups %}
 <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-primary mb-4">Current Groups</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                Join one of our active small groups
+            </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for group in groups[:6] %}
+            <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+                <h3 class="text-xl font-semibold text-primary mb-2">{{ group.name }}</h3>
+                <p class="text-gray-600 mb-4">{{ group.description or 'Join us for fellowship and study' }}</p>
+                <div class="flex items-center text-sm text-gray-500">
+                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                        <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
+                    </svg>
+                    {{ group.member_count or 0 }} members
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Why Join Groups Section -->
+<section class="py-16 bg-gray-50">
     <div class="max-w-6xl mx-auto px-4">
         <div class="text-center mb-12">
             <h2 class="text-3xl font-bold text-primary mb-4">Why Join a Group?</h2>
             <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                Small groups are where life happens. Connect with others, grow in faith, and make lasting friendships.
+                Small groups are where life change happens. Connect with others, grow in faith, and make lasting friendships.
             </p>
         </div>
         
@@ -31,28 +61,27 @@
             <div class="text-center">
                 <div class="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full mb-4">
                     <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"/>
+                        <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
                     </svg>
                 </div>
                 <h3 class="text-xl font-semibold mb-2">Community</h3>
-                <p class="text-gray-600">Build meaningful relationships with people who care about you</p>
+                <p class="text-gray-600">Build meaningful relationships with people who share your faith journey</p>
             </div>
             
             <div class="text-center">
                 <div class="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full mb-4">
                     <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
-                        <path fill-rule="evenodd" d="M4 5a2 2 0 012-2v1a1 1 0 001 1h6a1 1 0 001-1V3a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"/>
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
                 </div>
                 <h3 class="text-xl font-semibold mb-2">Growth</h3>
-                <p class="text-gray-600">Study God's Word together and grow in your faith journey</p>
+                <p class="text-gray-600">Study God's Word together and grow in your relationship with Christ</p>
             </div>
             
             <div class="text-center">
                 <div class="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full mb-4">
                     <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                        <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"/>
                     </svg>
                 </div>
                 <h3 class="text-xl font-semibold mb-2">Support</h3>

@@ -1,66 +1,49 @@
-"use client"
+﻿"use client"
 
-export default function GivingPage() {
+export default function EventsPage() {
   return (
-    <div className="min-h-screen">
-      {/* Your custom header/branding */}
-      <section className="py-16 bg-gradient-to-br from-primary/10 to-secondary/10">
+    <div className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <section className="py-16 bg-gradient-to-br from-primary/10 via-primary/5 to-secondary/10">
         <div className="max-w-4xl mx-auto text-center px-4">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-lg mb-6">
             <svg className="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"/>
+              <path d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zM4 7h12v9a1 1 0 01-1 1H5a1 1 0 01-1-1V7z"/>
             </svg>
           </div>
-          <h1 className="text-4xl lg:text-5xl font-bold text-primary mb-6">Give Online</h1>
-          <p className="text-xl text-gray-600 mb-8">Support our mission and ministries through secure online giving</p>
+          <h1 className="text-4xl lg:text-5xl font-bold text-primary mb-6">Events</h1>
+          <p className="text-xl text-muted mb-8">Join us for upcoming events and activities</p>
           <button 
-            onClick={() => window.open('https://destinyokc.churchcenter.com/giving', '_blank')}
-            className="bg-primary text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary/90 transition-colors"
+            onClick={() => window.open('https://destinyokc.churchcenter.com/registrations', '_blank')}
+            className="bg-primary text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary/90 transition-all duration-200 hover:shadow-md"
           >
-            Give Now
+            View All Events
           </button>
         </div>
       </section>
 
-      {/* Why Give Section */}
-      <section className="py-16 bg-white">
+      {/* Event Categories */}
+      <section className="py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-primary mb-4">Why We Give</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Your generosity helps us reach our community and beyond with the love of Christ
+            <h2 className="text-3xl font-bold text-primary mb-4">Event Categories</h2>
+            <p className="text-lg text-muted max-w-2xl mx-auto">
+              Find events that interest you
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full mb-4">
-                <svg className="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Local Impact</h3>
-              <p className="text-gray-600">Supporting our community outreach, food pantry, and local mission work</p>
+            <div className="bg-white p-8 rounded-xl shadow-soft border border-gray-200 text-center">
+              <h3 className="text-xl font-semibold text-primary mb-2">Worship Services</h3>
+              <p className="text-muted">Sunday morning worship</p>
             </div>
-            
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full mb-4">
-                <svg className="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Global Mission</h3>
-              <p className="text-gray-600">Partnering with missionaries and organizations around the world</p>
+            <div className="bg-white p-8 rounded-xl shadow-soft border border-gray-200 text-center">
+              <h3 className="text-xl font-semibold text-primary mb-2">Bible Studies</h3>
+              <p className="text-muted">Deep dive into God's Word</p>
             </div>
-            
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full mb-4">
-                <svg className="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"/>
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Ministry Growth</h3>
-              <p className="text-gray-600">Expanding our facilities and programs to serve more people</p>
+            <div className="bg-white p-8 rounded-xl shadow-soft border border-gray-200 text-center">
+              <h3 className="text-xl font-semibold text-primary mb-2">Community Events</h3>
+              <p className="text-muted">Fun activities for all ages</p>
             </div>
           </div>
         </div>

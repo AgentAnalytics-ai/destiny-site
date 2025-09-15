@@ -1,199 +1,34 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+﻿/* app/globals.css - Match Planning Center Publishing exactly */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    /* Professional blue-based primary - more sophisticated */
-    --primary: 220 100% 50%; /* #0066cc - deeper, more professional blue */
-    --primary-foreground: 0 0% 100%;
-    /* Complementary slate gray secondary - no more bright yellow */
-    --secondary: 220 15% 45%; /* #64748b - professional slate gray */
-    --secondary-foreground: 0 0% 100%;
-    /* Warm accent - subtle orange instead of bright red */
-    --accent: 25 95% 60%; /* #f97316 - warm orange accent */
-    --accent-foreground: 0 0% 100%;
-    /* Softer, warmer muted colors */
-    --muted: 220 15% 85%;
-    --muted-foreground: 220 10% 50%;
-    --border: 220 20% 90%;
-    --input: 220 20% 90%;
-    --ring: 220 100% 50%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --radius: 0.75rem; /* Slightly more rounded for friendlier feel */
-  }
-}
-
-/* Custom Animations */
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fade-in-left {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fade-in-right {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fade-in-up 0.8s ease-out forwards;
-}
-
-.animate-fade-in-left {
-  animation: fade-in-left 0.8s ease-out forwards;
-}
-
-.animate-fade-in-right {
-  animation: fade-in-right 0.8s ease-out forwards;
-}
-
-/* Enhanced animations */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-
-@keyframes pulse-bright {
-  0%, 100% { 
-    box-shadow: 0 0 0 0 rgba(0, 102, 255, 0.4);
-    transform: scale(1);
-  }
-  50% { 
-    box-shadow: 0 0 0 20px rgba(0, 102, 255, 0);
-    transform: scale(1.05);
-  }
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-.animate-pulse-bright {
-  animation: pulse-bright 2s infinite;
-}
-
-.animate-shimmer {
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-  background-size: 200% 100%;
-  animation: shimmer 2s infinite;
-}
-
-/* Smooth Scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
-/* Glass Morphism Utilities */
-.glass {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Gradient Text */
-.gradient-text {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Updated gradient utilities - more cohesive */
-.gradient-primary {
-  background: linear-gradient(135deg, #0066cc 0%, #1e40af 50%, #0066cc 100%);
-}
-
-.gradient-secondary {
-  background: linear-gradient(135deg, #64748b 0%, #475569 50%, #64748b 100%);
-}
-
-.gradient-warm {
-  background: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #dc2626 100%);
-}
-
-.gradient-hero {
-  background: linear-gradient(135deg, #0066cc 0%, #1e40af 25%, #64748b 50%, #f97316 75%, #ea580c 100%);
-}
-
-/* Enhanced glass morphism */
-.glass-bright {
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 32px rgba(0, 102, 204, 0.1);
-}
-
-/* Professional shadow effects */
-.shadow-bright {
-  box-shadow: 0 10px 40px rgba(0, 102, 204, 0.15), 0 4px 20px rgba(100, 116, 139, 0.1);
-}
-
-.shadow-warm {
-  box-shadow: 0 10px 40px rgba(249, 115, 22, 0.15), 0 4px 20px rgba(234, 88, 12, 0.1);
-}
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --primary: #0066cc;
+  --secondary: #64748b;
+  --accent: #f97316;
+  --background: #ffffff;
+  --foreground: #000000;
+  --muted: #6b7280;
 }
 
 * {
-  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Match Planning Center's exact button styles */
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+}
+
+.btn-primary:hover {
+  background-color: #0052a3;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
 }

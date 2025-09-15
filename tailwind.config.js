@@ -1,76 +1,36 @@
-/** @type {import('tailwindcss').Config} */
+﻿/** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ["class"],
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  prefix: "",
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
     extend: {
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "#1a1a1a",
-          foreground: "#ffffff",
-        },
-        secondary: {
-          DEFAULT: "#2563eb",
-          foreground: "#ffffff",
-        },
-        accent: {
-          DEFAULT: "#dc2626",
-          foreground: "#ffffff",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "#64748b",
-          foreground: "#ffffff",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
+        primary: '#0066cc',
+        secondary: '#64748b',
+        accent: '#f97316',
+        background: '#ffffff',
+        foreground: '#000000',
+        muted: '#6b7280',
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        'lg': '8px',
+        'xl': '12px',
       },
-      keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
+      boxShadow: {
+        'soft': '0 1px 3px rgba(0, 0, 0, 0.1)',
+        'medium': '0 4px 12px rgba(0, 0, 0, 0.15)',
       },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-      },
+      spacing: {
+        '18': '4.5rem',
+        '88': '22rem',
+      }
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [],
 }
