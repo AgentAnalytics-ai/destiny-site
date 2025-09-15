@@ -1,118 +1,111 @@
-"use client"
+﻿"use client"
 
 import Link from 'next/link'
-import Image from 'next/image'
-import { Button } from '@/components/ui/button'
-import { Container } from '@/components/ui/container'
-import { site } from '@/lib/config/site.config'
-import { Menu, X } from 'lucide-react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
-export function SiteHeader() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+export default function Navigation() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-      scrolled 
-        ? 'bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-lg' 
-        : 'bg-transparent'
-    }`}>
-      <Container>
-        <div className="flex h-16 items-center justify-between">
-          <div className="flex lg:flex-1">
-            <Link href="/" className="-m-1.5 p-1.5">
-              <span className="sr-only">{site.name}</span>
-              <Image 
-                src="/images/logo/logo-primary.svg.png" 
-                alt="Destiny Christian Center"
-                width={120}
-                height={32}
-                className="h-8 w-auto"
-              />
+    <nav className="bg-white shadow-sm border-b border-gray-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <div className="flex items-center">
+            <Link href="/" className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-xl">D</span>
+              </div>
+              <span className="text-xl font-bold text-primary">DESTINYOKC.COM</span>
             </Link>
           </div>
 
-          <nav className="hidden lg:flex lg:gap-x-8">
-            {site.nav.main.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="text-sm font-semibold text-primary hover:text-secondary transition-colors uppercase tracking-wide"
-              >
-                {item.label}
-              </Link>
-            ))}
-            <Link
-              href="/contact"
-              className="text-sm font-semibold text-primary hover:text-secondary transition-colors uppercase tracking-wide"
-            >
-              Contact
+          {/* Desktop Navigation - FIXED: Add proper spacing */}
+          <div className="hidden md:flex items-center space-x-8">
+            <Link href="/" className="text-primary hover:text-primary/80 transition-colors font-medium">
+              HOME
             </Link>
-          </nav>
-
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <Button 
-              asChild 
-              className="bg-secondary hover:bg-secondary/90 text-white font-semibold"
-            >
-              <Link href="/giving">
-                GIVING
-              </Link>
-            </Button>
+            <Link href="/about" className="text-primary hover:text-primary/80 transition-colors font-medium">
+              ABOUT
+            </Link>
+            <Link href="/groups" className="text-primary hover:text-primary/80 transition-colors font-medium">
+              GROUPS
+            </Link>
+            <Link href="/messages" className="text-primary hover:text-primary/80 transition-colors font-medium">
+              MESSAGES
+            </Link>
+            <Link href="/live" className="text-primary hover:text-primary/80 transition-colors font-medium">
+              LIVE
+            </Link>
+            <Link href="/events" className="text-primary hover:text-primary/80 transition-colors font-medium">
+              EVENTS
+            </Link>
+            <Link href="/resource" className="text-primary hover:text-primary/80 transition-colors font-medium">
+              RESOURCE
+            </Link>
+            <Link href="/contact" className="text-primary hover:text-primary/80 transition-colors font-medium">
+              CONTACT
+            </Link>
           </div>
 
-          <div className="flex lg:hidden">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          {/* CTA Button - Keep existing styling */}
+          <div className="hidden md:flex items-center">
+            <Link 
+              href="/giving" 
+              className="bg-primary text-white px-6 py-2 rounded-lg font-semibold hover:bg-primary/90 transition-all duration-200"
             >
-              <span className="sr-only">Open main menu</span>
-              {mobileMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </Button>
+              GIVING
+            </Link>
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-primary hover:text-primary/80 transition-colors"
+            >
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
           </div>
         </div>
 
-        {mobileMenuOpen && (
-          <div className="lg:hidden">
-            <div className="space-y-1 pb-3 pt-2">
-              {site.nav.main.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="block px-3 py-2 text-base font-semibold text-primary hover:text-secondary hover:bg-gray-50 rounded-md uppercase tracking-wide"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              ))}
-              <div className="px-3 py-2">
-                <Button asChild className="w-full bg-secondary hover:bg-secondary/90 text-white font-semibold">
-                  <Link 
-                    href="/giving"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    GIVING
-                  </Link>
-                </Button>
-              </div>
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="md:hidden">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
+              <Link href="/" className="block px-3 py-2 text-primary hover:text-primary/80 transition-colors font-medium">
+                HOME
+              </Link>
+              <Link href="/about" className="block px-3 py-2 text-primary hover:text-primary/80 transition-colors font-medium">
+                ABOUT
+              </Link>
+              <Link href="/groups" className="block px-3 py-2 text-primary hover:text-primary/80 transition-colors font-medium">
+                GROUPS
+              </Link>
+              <Link href="/messages" className="block px-3 py-2 text-primary hover:text-primary/80 transition-colors font-medium">
+                MESSAGES
+              </Link>
+              <Link href="/live" className="block px-3 py-2 text-primary hover:text-primary/80 transition-colors font-medium">
+                LIVE
+              </Link>
+              <Link href="/events" className="block px-3 py-2 text-primary hover:text-primary/80 transition-colors font-medium">
+                EVENTS
+              </Link>
+              <Link href="/resource" className="block px-3 py-2 text-primary hover:text-primary/80 transition-colors font-medium">
+                RESOURCE
+              </Link>
+              <Link href="/contact" className="block px-3 py-2 text-primary hover:text-primary/80 transition-colors font-medium">
+                CONTACT
+              </Link>
+              <Link href="/giving" className="block px-3 py-2 bg-primary text-white rounded-lg font-semibold text-center">
+                GIVING
+              </Link>
             </div>
           </div>
         )}
-      </Container>
-    </header>
+      </div>
+    </nav>
   )
 }
