@@ -7,23 +7,23 @@ export default function Navigation() {
   return (
     <nav className="bg-white border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20"> {/* Increased from h-16 to h-20 */}
+        <div className="flex justify-between items-center h-20">
           {/* Logo - Use destiny-logo.png with fallback */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <Image
                 src="/images/logo/destiny-logo.png"
                 alt="Destiny Church"
-                width={150} {/* Increased from 120 */}
-                height={50} {/* Increased from 40 */}
-                className="h-12 w-auto" {/* Increased from h-10 */}
+                width={150}
+                height={50}
+                className="h-12 w-auto"
                 onError={(e) => {
                   // Fallback to text if image fails
                   e.currentTarget.style.display = 'none'
                   e.currentTarget.nextElementSibling.style.display = 'block'
                 }}
               />
-              <span className="text-2xl font-bold text-blue-600 hidden">DESTINY</span> {/* Increased from text-xl */}
+              <span className="text-2xl font-bold text-blue-600 hidden">DESTINY</span>
             </Link>
           </div>
           
