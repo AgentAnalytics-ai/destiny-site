@@ -6,7 +6,7 @@ export default function VisitPage() {
       <section className="py-16 text-center">
         <div className="max-w-4xl mx-auto px-4">
           <h1 className="text-4xl font-bold text-black mb-8">Plan Your Visit</h1>
-          <p className="text-xl text-black mb-8">We can't wait to meet you!</p>
+          <p className="text-xl text-black mb-8">We can&apos;t wait to meet you!</p>
           
           <div className="grid md:grid-cols-2 gap-8 text-left">
             <div>
