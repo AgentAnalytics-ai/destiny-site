@@ -7,11 +7,11 @@ export default function Navigation() {
     <nav className="bg-white border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-32">
-          {/* Logo - Use destiny-logo.png with HUGE space */}
+          {/* Logo - Test with direct URL */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <img
-                src="/images/logo/destiny-logo.png"
+                src="https://destiny-site.vercel.app/images/logo/destiny-logo.png"
                 alt="Destiny Church"
                 className="h-20 w-auto"
                 onError={(e) => {
