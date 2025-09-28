@@ -31,6 +31,8 @@ export default function Navigation() {
           {/* Navigation Links */}
           <nav className="hidden md:flex space-x-8">
             <Link href="/" className="text-gray-900 hover:text-blue-600 font-medium">Home</Link>
+            <Link href="/events" className="text-gray-900 hover:text-blue-600 font-medium">Events</Link>
+            <Link href="/gallery" className="text-gray-900 hover:text-blue-600 font-medium">Gallery</Link>
             <Link href="/giving" className="text-gray-900 hover:text-blue-600 font-medium">Give</Link>
             <Link href="/groups" className="text-gray-900 hover:text-blue-600 font-medium">Groups</Link>
             <Link href="/contact" className="text-gray-900 hover:text-blue-600 font-medium">Contact</Link>

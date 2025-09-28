@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Container } from '@/components/ui/container'
 import { ArrowRight, Heart, Users, BookOpen, Target } from 'lucide-react'
+import PhotoGallery from '@/components/ui/PhotoGallery'
 
 export const metadata: Metadata = {
   title: 'About Us | Destiny Christian Center',
@@ -83,9 +84,10 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl flex items-center justify-center">
-                <BookOpen className="h-24 w-24 text-primary/60" />
-              </div>
+              <PhotoGallery 
+                folderName="03-community"
+                maxPhotos={4}
+              />
             </div>
           </div>
         </Container>
