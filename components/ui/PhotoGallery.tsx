@@ -67,13 +67,22 @@ export default function PhotoGallery({
   useEffect(() => {
     const fetchPhotos = async () => {
       try {
-        const response = await fetch('/api/photos')
-        const data = await response.json()
+        // Try primary API first
+        let response = await fetch('/api/photos')
+        let data = await response.json()
+        
+        // If primary fails, try backup
+        if (!data.success) {
+          console.log('Primary API failed, trying backup...')
+          response = await fetch('/api/photos-backup')
+          data = await response.json()
+        }
         
         if (data.success) {
           setFolders(data.folders)
+          console.log(`Photos loaded from: ${data.source || 'primary'}`)
         } else {
-          setError('Failed to load photos')
+          setError('Failed to load photos from all sources')
         }
       } catch (err) {
         setError('Error loading photos')
