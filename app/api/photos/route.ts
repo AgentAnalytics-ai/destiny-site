@@ -62,9 +62,10 @@ export async function GET() {
     })
   } catch (error) {
     console.error('Error fetching photos:', error)
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred'
     return NextResponse.json({ 
       success: false,
-      error: `Failed to fetch photos: ${error.message}`,
+      error: `Failed to fetch photos: ${errorMessage}`,
       folders: []
     })
   }

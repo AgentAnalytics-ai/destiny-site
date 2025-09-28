@@ -1,6 +1,7 @@
 ﻿"use client"
 
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Navigation() {
   return (
@@ -10,9 +11,11 @@ export default function Navigation() {
           {/* Logo - Test with direct URL */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
-              <img
+              <Image
                 src="https://destiny-site.vercel.app/images/logo/destiny-logo.png"
                 alt="Destiny Church"
+                width={200}
+                height={80}
                 className="h-20 w-auto"
                 onError={(e) => {
                   console.log('Logo failed to load:', e.currentTarget.src);
