@@ -106,7 +106,7 @@ export default function PhotoGallery({
           </div>
           <h3 className="text-lg font-semibold text-gray-900 mb-2">Photos Coming Soon</h3>
           <p className="text-gray-600 mb-4">
-            We're setting up our photo gallery. Check back soon to see our community in action!
+            We&apos;re setting up our photo gallery. Check back soon to see our community in action!
           </p>
           <button 
             onClick={() => window.location.reload()} 
