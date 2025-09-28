@@ -1,5 +1,6 @@
 "use client"
 
+import Link from 'next/link'
 import PhotoGallery from '@/components/ui/PhotoGallery'
 import { getPhotoSectionsForPage } from '@/lib/config/photo-sections.config'
 
@@ -52,18 +53,18 @@ export default function GalleryPage() {
             Join us for worship and community events to create new memories together
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
+            <Link 
               href="/events" 
               className="inline-block bg-white text-blue-600 px-10 py-4 rounded-xl font-semibold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               View Events
-            </a>
-            <a 
+            </Link>
+            <Link 
               href="/visit" 
               className="inline-block bg-transparent text-white px-10 py-4 rounded-xl font-semibold text-lg border-2 border-white hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105"
             >
               Plan a Visit
-            </a>
+            </Link>
           </div>
         </div>
       </section>

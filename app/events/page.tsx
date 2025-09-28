@@ -1,6 +1,7 @@
 ﻿"use client"
 
 import Link from 'next/link'
+import Image from 'next/image'
 import PhotoGallery from '@/components/ui/PhotoGallery'
 
 export default function EventsPage() {
@@ -30,7 +31,7 @@ export default function EventsPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Example Event Card */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
-              <img src="https://via.placeholder.com/400x250" alt="Event Image" className="w-full h-48 object-cover" />
+              <Image src="https://via.placeholder.com/400x250" alt="Event Image" width={400} height={250} className="w-full h-48 object-cover" />
               <div className="p-6">
                 <h3 className="text-2xl font-semibold text-foreground mb-2">Community Outreach Day</h3>
                 <p className="text-muted mb-4">Join us as we serve our local community. It&apos;s a great way to make a difference!</p>
@@ -46,7 +47,7 @@ export default function EventsPage() {
 
             {/* Another Example Event Card */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
-              <img src="https://via.placeholder.com/400x250" alt="Event Image" className="w-full h-48 object-cover" />
+              <Image src="https://via.placeholder.com/400x250" alt="Event Image" width={400} height={250} className="w-full h-48 object-cover" />
               <div className="p-6">
                 <h3 className="text-2xl font-semibold text-foreground mb-2">Youth Fall Retreat</h3>
                 <p className="text-muted mb-4">A weekend of fun, fellowship, and spiritual growth for our youth. Don&apos;t miss out!</p>

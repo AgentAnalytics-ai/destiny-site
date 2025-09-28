@@ -1,6 +1,7 @@
 ﻿"use client"
 
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function GroupsPage() {
   return (
@@ -18,7 +19,7 @@ export default function GroupsPage() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Example Group Card */}
           <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
-            <img src="https://via.placeholder.com/400x250" alt="Group Image" className="w-full h-48 object-cover" />
+            <Image src="https://via.placeholder.com/400x250" alt="Group Image" width={400} height={250} className="w-full h-48 object-cover" />
             <div className="p-6">
               <h3 className="text-2xl font-semibold text-foreground mb-2">Men&apos;s Bible Study</h3>
               <p className="text-muted mb-4">Join other men for fellowship, prayer, and in-depth study of God&apos;s Word.</p>
@@ -34,7 +35,7 @@ export default function GroupsPage() {
 
           {/* Another Example Group Card */}
           <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
-            <img src="https://via.placeholder.com/400x250" alt="Group Image" className="w-full h-48 object-cover" />
+            <Image src="https://via.placeholder.com/400x250" alt="Group Image" width={400} height={250} className="w-full h-48 object-cover" />
             <div className="p-6">
               <h3 className="text-2xl font-semibold text-foreground mb-2">Women&apos;s Prayer Group</h3>
               <p className="text-muted mb-4">A supportive community for women to share, pray, and encourage one another.</p>

@@ -34,6 +34,32 @@ export default function PhotoGallery({
   showTitles = false,
   aspectRatio = 'auto'
 }: PhotoGalleryProps) {
+  // Use the layout, showTitles, and aspectRatio parameters
+  const getGridClasses = () => {
+    switch (layout) {
+      case 'hero':
+        return 'grid grid-cols-1 gap-4'
+      case 'carousel':
+        return 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'
+      case 'masonry':
+        return 'columns-1 md:columns-2 lg:columns-3 gap-4'
+      default:
+        return 'grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'
+    }
+  }
+
+  const getImageClasses = () => {
+    switch (aspectRatio) {
+      case 'square':
+        return 'w-full aspect-square object-cover'
+      case 'landscape':
+        return 'w-full h-48 object-cover'
+      case 'portrait':
+        return 'w-full h-64 object-cover'
+      default:
+        return 'w-full h-48 object-cover'
+    }
+  }
   const [folders, setFolders] = useState<FolderData[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -110,7 +136,7 @@ export default function PhotoGallery({
             {folder.folderName.replace(/[0-9]-/g, '').replace(/-/g, ' ')}
           </h3>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className={getGridClasses()}>
             {folder.photos.slice(0, maxPhotos).map((photo) => (
               <div key={photo.id} className="relative group overflow-hidden rounded-lg shadow-md">
                 <Image
@@ -118,12 +144,14 @@ export default function PhotoGallery({
                   alt={photo.name}
                   width={300}
                   height={200}
-                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                  className={`${getImageClasses()} transition-transform duration-300 group-hover:scale-105`}
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300" />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p className="text-white text-sm truncate">{photo.name}</p>
-                </div>
+                {showTitles && (
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p className="text-white text-sm truncate">{photo.name}</p>
+                  </div>
+                )}
               </div>
             ))}
           </div>
