@@ -8,56 +8,66 @@ export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <nav className="bg-white shadow-lg">
+    <nav className="bg-white shadow-lg border-b border-gray-100 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-32">
-          {/* Logo - Fixed path */}
+        <div className="flex justify-between items-center h-24">
+          {/* Professional Church Logo */}
           <div className="flex items-center">
-            <Link href="/" className="flex items-center">
-              <Image
-                src="/images/logo/Logo-Destiny-RGB.png"
-                alt="Destiny Church"
-                width={200}
-                height={80}
-                className="h-20 w-auto"
-                priority
-                onError={(e) => {
-                  console.log('Logo failed to load, trying fallback...')
-                  const target = e.target as HTMLImageElement
-                  target.src = '/images/logo/destiny-logo.png'
-                }}
-              />
-              <span className="text-4xl font-bold text-blue-600 hidden">DESTINY</span>
+            <Link href="/" className="flex items-center group">
+              <div className="relative">
+                <Image
+                  src="/images/logo/Logo-Destiny-RGB.png"
+                  alt="Destiny Church - Where Hope, Faith, and Purpose Come Alive"
+                  width={200}
+                  height={80}
+                  className="h-16 w-auto transition-transform duration-300 group-hover:scale-105"
+                  priority
+                  onError={(e) => {
+                    console.log('Logo failed to load, trying fallback...')
+                    const target = e.target as HTMLImageElement
+                    target.src = '/images/logo/destiny-logo.png'
+                  }}
+                />
+                {/* Fallback text logo */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="text-2xl font-bold text-blue-600">DESTINY</span>
+                </div>
+              </div>
             </Link>
           </div>
           
-          {/* Desktop Navigation */}
+          {/* Professional Church Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">
+            <Link href="/" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200 relative group">
               Home
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-200 group-hover:w-full"></span>
             </Link>
-            <Link href="/events" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">
+            <Link href="/events" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200 relative group">
               Events
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-200 group-hover:w-full"></span>
             </Link>
-            <Link href="/gallery" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">
+            <Link href="/gallery" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200 relative group">
               Gallery
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-200 group-hover:w-full"></span>
             </Link>
-            <Link href="/give" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">
+            <Link href="/give" className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium">
               Give
             </Link>
-            <Link href="/groups" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">
+            <Link href="/groups" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200 relative group">
               Groups
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-200 group-hover:w-full"></span>
             </Link>
-            <Link href="/contact" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">
+            <Link href="/contact" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200 relative group">
               Contact
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-200 group-hover:w-full"></span>
             </Link>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Professional Mobile menu button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-blue-600 focus:outline-none focus:text-blue-600"
+              className="text-gray-700 hover:text-blue-600 focus:outline-none focus:text-blue-600 transition-colors duration-200"
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -66,26 +76,26 @@ export default function Navigation() {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Professional Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden">
+          <div className="md:hidden border-t border-gray-100 bg-white">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <Link href="/" className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium">
+              <Link href="/" className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium transition-colors duration-200">
                 Home
               </Link>
-              <Link href="/events" className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium">
+              <Link href="/events" className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium transition-colors duration-200">
                 Events
               </Link>
-              <Link href="/gallery" className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium">
+              <Link href="/gallery" className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium transition-colors duration-200">
                 Gallery
               </Link>
-              <Link href="/give" className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium">
+              <Link href="/give" className="bg-blue-600 text-white block px-3 py-2 text-base font-medium rounded-lg mx-3 my-2 text-center">
                 Give
               </Link>
-              <Link href="/groups" className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium">
+              <Link href="/groups" className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium transition-colors duration-200">
                 Groups
               </Link>
-              <Link href="/contact" className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium">
+              <Link href="/contact" className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium transition-colors duration-200">
                 Contact
               </Link>
             </div>

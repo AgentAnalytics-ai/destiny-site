@@ -28,38 +28,12 @@ interface PhotoGalleryProps {
 
 export default function PhotoGallery({ 
   folderName, 
-  title, 
+  title,
   maxPhotos = 12,
   layout = 'grid',
   showTitles = false,
-  aspectRatio = 'auto'
+  aspectRatio = 'landscape'
 }: PhotoGalleryProps) {
-  // Use the layout, showTitles, and aspectRatio parameters
-  const getGridClasses = () => {
-    switch (layout) {
-      case 'hero':
-        return 'grid grid-cols-1 gap-4'
-      case 'carousel':
-        return 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'
-      case 'masonry':
-        return 'columns-1 md:columns-2 lg:columns-3 gap-4'
-      default:
-        return 'grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'
-    }
-  }
-
-  const getImageClasses = () => {
-    switch (aspectRatio) {
-      case 'square':
-        return 'w-full aspect-square object-cover'
-      case 'landscape':
-        return 'w-full h-48 object-cover'
-      case 'portrait':
-        return 'w-full h-64 object-cover'
-      default:
-        return 'w-full h-48 object-cover'
-    }
-  }
   const [folders, setFolders] = useState<FolderData[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -67,22 +41,15 @@ export default function PhotoGallery({
   useEffect(() => {
     const fetchPhotos = async () => {
       try {
-        // Try primary API first
-        let response = await fetch('/api/photos')
-        let data = await response.json()
-        
-        // If primary fails, try backup
-        if (!data.success) {
-          console.log('Primary API failed, trying backup...')
-          response = await fetch('/api/photos-backup')
-          data = await response.json()
-        }
+        // PROFESSIONAL: Go straight to backup system - no Google Drive complexity
+        const response = await fetch('/api/photos-backup')
+        const data = await response.json()
         
         if (data.success) {
           setFolders(data.folders)
-          console.log(`Photos loaded from: ${data.source || 'primary'}`)
+          console.log('✅ Professional church photos loaded successfully')
         } else {
-          setError('Failed to load photos from all sources')
+          setError('Failed to load photos')
         }
       } catch (err) {
         setError('Error loading photos')
@@ -95,95 +62,128 @@ export default function PhotoGallery({
     fetchPhotos()
   }, [])
 
+  const getGridClasses = () => {
+    switch (layout) {
+      case 'hero':
+        return 'grid grid-cols-1 gap-8'
+      case 'carousel':
+        return 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'
+      case 'masonry':
+        return 'columns-1 md:columns-2 lg:columns-3 gap-6'
+      default:
+        return 'grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'
+    }
+  }
+
+  const getImageClasses = () => {
+    switch (aspectRatio) {
+      case 'square':
+        return 'w-full aspect-square object-cover rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105'
+      case 'landscape':
+        return 'w-full h-64 object-cover rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105'
+      case 'portrait':
+        return 'w-full h-80 object-cover rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105'
+      default:
+        return 'w-full h-64 object-cover rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105'
+    }
+  }
+
   if (loading) {
     return (
-      <div className="flex justify-center items-center py-12">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-        <span className="ml-3 text-gray-600">Loading photos...</span>
+      <div className="flex justify-center items-center py-16">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-16 w-16 border-4 border-blue-600 border-t-transparent mx-auto mb-4"></div>
+          <div className="text-gray-600 font-medium text-lg">Loading professional photos...</div>
+          <div className="text-gray-400 text-sm mt-2">Preparing your church gallery</div>
+        </div>
       </div>
     )
   }
 
   if (error) {
     return (
-      <div className="text-center py-12">
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-8 max-w-md mx-auto">
-          <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-          </div>
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">Photos Coming Soon</h3>
-          <p className="text-gray-600 mb-4">
-            We&apos;re setting up our photo gallery. Check back soon to see our community in action!
-          </p>
+      <div className="text-center py-16">
+        <div className="bg-red-50 border border-red-200 rounded-xl p-8 max-w-md mx-auto">
+          <div className="text-red-600 font-semibold text-lg mb-2">Photo Loading Error</div>
+          <div className="text-red-500 text-sm mb-4">{error}</div>
           <button 
             onClick={() => window.location.reload()} 
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors font-medium"
           >
-            Refresh
+            Retry Loading
           </button>
         </div>
       </div>
     )
   }
 
-  // Filter folders if specific folder name is provided
-  const displayFolders = folderName 
-    ? folders.filter(folder => folder.folderName.toLowerCase().includes(folderName.toLowerCase()))
-    : folders
+  // Filter photos by folder if specified
+  const targetFolder = folderName 
+    ? folders.find(f => f.folderName === folderName)
+    : folders[0] // Default to first folder
 
-  if (displayFolders.length === 0) {
+  if (!targetFolder || targetFolder.photos.length === 0) {
     return (
-      <div className="text-center py-12">
-        <p className="text-gray-600">No photos found</p>
+      <div className="text-center py-16">
+        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-12 max-w-lg mx-auto">
+          <div className="text-blue-600 font-semibold text-xl mb-3">Photos Coming Soon</div>
+          <div className="text-blue-500 text-sm leading-relaxed">
+            We're setting up our professional photo gallery. Check back soon to see our amazing church community in action!
+          </div>
+          <div className="mt-6">
+            <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-lg text-sm font-medium">
+              <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
+              </svg>
+              Gallery in Progress
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
 
+  const displayPhotos = targetFolder.photos.slice(0, maxPhotos)
+
   return (
-    <div className="py-12">
+    <div className="w-full">
       {title && (
-        <h2 className="text-3xl font-bold text-center mb-8 text-gray-900">
-          {title}
-        </h2>
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">{title}</h2>
+          <div className="w-32 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto rounded-full"></div>
+          <div className="text-gray-600 mt-4 text-lg">Capturing our faith community in action</div>
+        </div>
       )}
       
-      {displayFolders.map((folder) => (
-        <div key={folder.folderId} className="mb-12">
-          <h3 className="text-2xl font-semibold mb-6 text-gray-800 capitalize">
-            {folder.folderName.replace(/[0-9]-/g, '').replace(/-/g, ' ')}
-          </h3>
-          
-          <div className={getGridClasses()}>
-            {folder.photos.slice(0, maxPhotos).map((photo) => (
-              <div key={photo.id} className="relative group overflow-hidden rounded-lg shadow-md">
-                <Image
-                  src={photo.thumbnailLink || photo.webViewLink}
-                  alt={photo.name}
-                  width={300}
-                  height={200}
-                  className={`${getImageClasses()} transition-transform duration-300 group-hover:scale-105`}
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300" />
-                {showTitles && (
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p className="text-white text-sm truncate">{photo.name}</p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-          
-          {folder.photos.length > maxPhotos && (
-            <div className="text-center mt-4">
-              <p className="text-gray-600">
-                Showing {maxPhotos} of {folder.photos.length} photos
-              </p>
+      <div className={getGridClasses()}>
+        {displayPhotos.map((photo) => (
+          <div key={photo.id} className="group relative overflow-hidden">
+            <div className="relative">
+              <Image
+                src={photo.thumbnailLink || photo.webViewLink}
+                alt={photo.name}
+                width={400}
+                height={300}
+                className={getImageClasses()}
+                loading="lazy"
+              />
+              {showTitles && (
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6">
+                  <div className="text-white font-semibold text-lg">{photo.name}</div>
+                  <div className="text-white/80 text-sm mt-1">Destiny Church</div>
+                </div>
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
             </div>
-          )}
+          </div>
+        ))}
+      </div>
+      
+      {displayPhotos.length === 0 && (
+        <div className="text-center py-16">
+          <div className="text-gray-500 text-lg">No photos available in this section.</div>
         </div>
-      ))}
+      )}
     </div>
   )
 }

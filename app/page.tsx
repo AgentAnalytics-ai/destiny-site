@@ -2,50 +2,42 @@
 
 import Link from 'next/link'
 import PhotoGallery from '@/components/ui/PhotoGallery'
-import { getHeroImages, getCommunityHighlights, getWorshipPhotos, getTestimonials } from '@/lib/config/photo-sections.config'
 
 export default function HomePage() {
-  const heroConfig = getHeroImages()
-  const communityConfig = getCommunityHighlights()
-  const worshipConfig = getWorshipPhotos()
-  const testimonialsConfig = getTestimonials()
-
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section with Professional Background */}
-      <section className="relative py-24 text-center overflow-hidden bg-gradient-to-br from-blue-50 to-gray-100">
+      {/* Professional Hero Section */}
+      <section className="relative py-24 text-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-indigo-50">
         {/* Hero Images Background */}
         <div className="absolute inset-0 z-0">
           <PhotoGallery 
-            folderName={heroConfig.folderName}
-            layout={heroConfig.layout}
-            aspectRatio={heroConfig.aspectRatio}
-            maxPhotos={heroConfig.maxPhotos}
-            showTitles={heroConfig.showTitles}
+            folderName="01-hero-images"
+            layout="hero"
+            maxPhotos={3}
+            aspectRatio="landscape"
           />
         </div>
         
-        {/* Hero Content Overlay */}
-        <div className="relative z-10 max-w-5xl mx-auto px-4">
-          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-12 shadow-2xl border border-white/20">
-            <h1 className="text-6xl font-bold text-gray-900 mb-6 leading-tight">
+        {/* Hero Content */}
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-12 shadow-2xl">
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
               STIR UP YOUR FAITH
             </h1>
-            <p className="text-2xl text-gray-700 mb-4 font-medium">Welcome to Destiny</p>
-            <p className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
-              Where Hope, Faith, and Purpose Come Alive
+            <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
+              Welcome to Destiny Church<br />
+              <span className="text-blue-600 font-semibold">Where Hope, Faith, and Purpose Come Alive</span>
             </p>
-            
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
-                href="/visit" 
-                className="inline-block bg-blue-600 text-white px-10 py-4 rounded-xl font-semibold text-lg border border-blue-600 hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                href="/contact" 
+                className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
               >
                 Plan a Visit
               </Link>
               <Link 
                 href="/events" 
-                className="inline-block bg-white text-blue-600 px-10 py-4 rounded-xl font-semibold text-lg border-2 border-blue-600 hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="bg-white text-blue-600 border-2 border-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-50 transition-colors duration-200 shadow-lg hover:shadow-xl"
               >
                 View Events
               </Link>
@@ -54,76 +46,100 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Community Highlights */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
+      {/* Community Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">{communityConfig.displayName}</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">{communityConfig.description}</p>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Community</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Experience the warmth and fellowship of our church family. We're more than just a congregation – we're a community united in faith, love, and purpose.
+            </p>
           </div>
+          
           <PhotoGallery 
-            folderName={communityConfig.folderName}
-            layout={communityConfig.layout}
-            aspectRatio={communityConfig.aspectRatio}
-            maxPhotos={communityConfig.maxPhotos}
-            showTitles={communityConfig.showTitles}
+            folderName="03-community"
+            title="Community Highlights"
+            maxPhotos={8}
+            layout="grid"
+            aspectRatio="landscape"
+            showTitles={true}
           />
         </div>
       </section>
 
       {/* Worship Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">{worshipConfig.displayName}</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">{worshipConfig.description}</p>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Worship & Service</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Join us for powerful worship services, meaningful fellowship, and life-changing experiences that strengthen your faith and connect you with God's purpose.
+            </p>
           </div>
+          
           <PhotoGallery 
-            folderName={worshipConfig.folderName}
-            layout={worshipConfig.layout}
-            aspectRatio={worshipConfig.aspectRatio}
-            maxPhotos={worshipConfig.maxPhotos}
-            showTitles={worshipConfig.showTitles}
+            folderName="04-worship"
+            title="Worship Services"
+            maxPhotos={6}
+            layout="carousel"
+            aspectRatio="landscape"
+            showTitles={true}
           />
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-gray-100">
-        <div className="max-w-7xl mx-auto px-4">
+      {/* Events Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">{testimonialsConfig.displayName}</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">{testimonialsConfig.description}</p>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Upcoming Events</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Stay connected with our church family through exciting events, community outreach, and spiritual growth opportunities.
+            </p>
           </div>
+          
           <PhotoGallery 
-            folderName={testimonialsConfig.folderName}
-            layout={testimonialsConfig.layout}
-            aspectRatio={testimonialsConfig.aspectRatio}
-            maxPhotos={testimonialsConfig.maxPhotos}
-            showTitles={testimonialsConfig.showTitles}
+            folderName="02-events"
+            title="Recent Events"
+            maxPhotos={6}
+            layout="grid"
+            aspectRatio="landscape"
+            showTitles={true}
           />
+          
+          <div className="text-center mt-12">
+            <Link 
+              href="/events" 
+              className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
+            >
+              View All Events
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-blue-600">
-        <div className="max-w-4xl mx-auto text-center px-4">
-          <h2 className="text-4xl font-bold text-white mb-6">Ready to Join Our Community?</h2>
-          <p className="text-xl text-blue-100 mb-10">
-            Experience the love, hope, and purpose that Destiny Church offers
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-700">
+        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold text-white mb-6">
+            Ready to Join Our Family?
+          </h2>
+          <p className="text-xl text-blue-100 mb-8 leading-relaxed">
+            Experience the love, hope, and purpose that comes from being part of a faith community. 
+            We'd love to welcome you to Destiny Church.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
-              href="/visit" 
-              className="inline-block bg-white text-blue-600 px-10 py-4 rounded-xl font-semibold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
+              href="/contact" 
+              className="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors duration-200 shadow-lg hover:shadow-xl"
             >
-              Plan Your Visit
+              Get in Touch
             </Link>
             <Link 
-              href="/gallery" 
-              className="inline-block bg-transparent text-white px-10 py-4 rounded-xl font-semibold text-lg border-2 border-white hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105"
+              href="/give" 
+              className="bg-transparent text-white border-2 border-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-200 shadow-lg hover:shadow-xl"
             >
-              View Gallery
+              Support Our Mission
             </Link>
           </div>
         </div>
