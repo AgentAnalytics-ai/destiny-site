@@ -15,12 +15,12 @@ export default function HomePage() {
         
         {/* Hero Content - NO BOX, JUST TEXT OVER IMAGE */}
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-6xl md:text-7xl font-bold text-white mb-8 leading-tight drop-shadow-2xl">
+          <h1 className="text-6xl md:text-7xl font-bold text-gray-900 mb-8 leading-tight drop-shadow-2xl">
             STIR UP YOUR FAITH
           </h1>
-          <p className="text-2xl md:text-3xl text-white mb-10 leading-relaxed drop-shadow-2xl">
+          <p className="text-2xl md:text-3xl text-gray-900 mb-10 leading-relaxed drop-shadow-2xl">
             Welcome to Destiny Church<br />
-            <span className="text-blue-300 font-bold">Where Hope, Faith, and Purpose Come Alive</span>
+            <span className="text-blue-600 font-bold">Where Hope, Faith, and Purpose Come Alive</span>
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link 
@@ -31,7 +31,7 @@ export default function HomePage() {
             </Link>
             <Link 
               href="/give" 
-              className="bg-blue-600/90 text-white border-2 border-blue-600 px-10 py-5 rounded-xl text-xl font-semibold hover:bg-blue-600 hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+              className="bg-blue-600/90 text-gray-900 border-2 border-blue-600 px-10 py-5 rounded-xl text-xl font-semibold hover:bg-blue-600 hover:shadow-lg transition-all duration-300 transform hover:scale-105"
             >
               Give
             </Link>
@@ -111,7 +111,7 @@ export default function HomePage() {
           <div className="text-center mt-12">
             <Link 
               href="/events" 
-              className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
+              className="bg-blue-600 text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
             >
               View All Events
             </Link>
@@ -132,7 +132,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
               href="/contact" 
-              className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
+              className="bg-blue-600 text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
             >
               Get in Touch
             </Link>
