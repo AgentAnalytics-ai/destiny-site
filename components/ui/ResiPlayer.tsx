@@ -84,15 +84,26 @@ export default function ResiPlayer({ streamId, className = '' }: ResiPlayerProps
         LIVE NOW
       </div>
 
-      {/* Resi Player */}
+      {/* Resi Player - Multiple Options */}
       {streamId ? (
-        <iframe
-          src={`https://player.resi.io/${streamId}`}
-          title="Destiny Church Live Stream"
-          className="w-full h-full"
-          allowFullScreen
-          allow="autoplay; fullscreen; picture-in-picture"
-        />
+        <div className="w-full h-full">
+          {/* Option 1: Direct Resi Player */}
+          <iframe
+            src={`https://player.resi.io/${streamId}`}
+            title="Destiny Church Live Stream"
+            className="w-full h-full"
+            allowFullScreen
+            allow="autoplay; fullscreen; picture-in-picture"
+          />
+          
+          {/* Option 2: Resi Studio Embed (if you have embed codes) */}
+          {/* <iframe
+            src={`https://studio.resi.io/embed/${streamId}`}
+            title="Destiny Church Live Stream"
+            className="w-full h-full"
+            allowFullScreen
+          /> */}
+        </div>
       ) : (
         <div className="w-full h-full flex items-center justify-center text-white">
           <div className="text-center">

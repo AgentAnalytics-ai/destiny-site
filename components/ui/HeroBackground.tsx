@@ -1,30 +1,20 @@
 'use client'
 
-import Image from 'next/image'
-
 interface HeroBackgroundProps {
   className?: string
 }
 
 export default function HeroBackground({ className = '' }: HeroBackgroundProps) {
   return (
-    <div className={`${className} relative w-full h-full overflow-hidden`}>
-      {/* DIRECT IMAGE COMPONENT - This WILL work */}
-      <Image
-        src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&h=900&fit=crop"
-        alt="Destiny Church Worship Service - Where Hope, Faith, and Purpose Come Alive"
-        fill
-        priority
-        quality={90}
-        sizes="100vw"
-        className="object-cover"
-        onLoad={() => console.log('✅ Hero image loaded successfully!')}
-        onError={(e) => {
-          console.log('❌ Primary image failed, trying fallback...')
-          const target = e.target as HTMLImageElement
-          target.src = '/images/hero-worship-service.png'
-        }}
-      />
+    <div 
+      className={`${className} relative w-full h-full overflow-hidden`}
+      style={{
+        backgroundImage: `url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&h=900&fit=crop')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
       {/* Optimized overlay for text readability */}
       <div className="absolute inset-0 bg-black/40"></div>
       {/* Subtle gradient overlay */}
