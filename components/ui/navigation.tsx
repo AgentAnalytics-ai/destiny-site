@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
-import SeamlessGiving from './SeamlessGiving'
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
