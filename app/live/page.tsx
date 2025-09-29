@@ -97,74 +97,38 @@ export default function LiveStreamPage() {
         </div>
       </section>
 
-      {/* Recent Videos Section */}
+      {/* Resi Playlist Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Recent Messages</h2>
-            <p className="text-xl text-gray-600">Catch up on recent sermons and special events</p>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Sunday Services</h2>
+            <p className="text-xl text-gray-600">Watch recent sermons and catch up on past services</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Recent Video Cards - Using actual video thumbnails */}
-            {[
-              {
-                title: "Stir Up Your Faith",
-                date: "January 26, 2025",
-                thumbnail: "/uploads/04-worship/JLA03436 (1).jpg", // Worship service photo
-                duration: "45:30",
-                videoUrl: "https://youtube.com/watch?v=example1"
-              },
-              {
-                title: "Walking in Purpose",
-                date: "January 19, 2025", 
-                thumbnail: "/uploads/04-worship/JLA03499.jpg", // Another worship photo
-                duration: "42:15",
-                videoUrl: "https://youtube.com/watch?v=example2"
-              },
-              {
-                title: "Community of Faith",
-                date: "January 12, 2025",
-                thumbnail: "/uploads/04-worship/JLA03436 (1).jpg", // Worship service photo
-                duration: "38:45",
-                videoUrl: "https://youtube.com/watch?v=example3"
-              }
-            ].map((video, index) => (
-              <a 
-                key={index} 
-                href={video.videoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-105 block"
-              >
-                <div className="relative aspect-video">
-                  <Image
-                    src={video.thumbnail}
-                    alt={video.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-black/20 flex items-center justify-center group">
-                    <div className="bg-white/90 rounded-full p-3 group-hover:bg-white group-hover:scale-110 transition-all duration-300">
-                      <svg className="w-8 h-8 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z"/>
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="absolute bottom-2 right-2 bg-black/80 text-white px-2 py-1 rounded text-sm">
-                    {video.duration}
-                  </div>
-                </div>
-                <div className="p-4">
-                  <h3 className="font-semibold text-gray-900 mb-2">{video.title}</h3>
-                  <p className="text-sm text-gray-500">{video.date}</p>
-                </div>
-              </a>
-            ))}
+          {/* Resi Playlist Embed */}
+          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200">
+            <div className="p-6 border-b border-gray-200">
+              <h3 className="text-2xl font-semibold text-gray-900">Recent Sunday Services</h3>
+              <p className="text-gray-600 mt-2">Our latest worship services and messages</p>
+            </div>
+            
+            <div className="p-6">
+              <div style={{position:'relative',overflow:'hidden',paddingTop:'56.25%'}}>
+                <iframe 
+                  allow="autoplay; fullscreen" 
+                  allowFullScreen={true} 
+                  className="resi-video-frame" 
+                  src="https://control.resi.io/webplayer/video.html?id=YjMwNzBlYWEtY2JiYy00MGQxLWJhMjktNTRiMTQwNDQzMDJmOmU0ZGM2OTcwLTlkNzUtMTFmMC05NGVmLTgzYzY0YTYxZDZjZQ==&type=playlist&autoplay=false" 
+                  style={{position:'absolute',top:0,left:0,width:'100%',height:'100%',border:'none'}}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* Resi Script */}
+      <script defer type="text/javascript" src="https://control.resi.io/webplayer/page.min.js"></script>
 
       {/* Call to Action */}
       <section className="py-20 bg-white">
