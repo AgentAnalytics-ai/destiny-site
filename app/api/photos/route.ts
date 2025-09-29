@@ -7,13 +7,19 @@ export async function GET() {
     console.log('Folder ID:', process.env.GOOGLE_DRIVE_FOLDER_ID)
     console.log('Service Account Email:', process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL)
     
-    const auth = new google.auth.GoogleAuth({
-      credentials: {
-        client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-        private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n').replace(/"/g, ''),
-      },
-      scopes: ['https://www.googleapis.com/auth/drive.readonly'],
-    })
+    // DEBUG: Log the processed private key (REMOVE AFTER DEBUGGING)
+    const private_key = process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n').replace(/"/g, '')
+    console.log('DEBUG: Private key first 50 chars:', private_key?.substring(0, 50))
+    console.log('DEBUG: Client email:', process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL)
+    console.log('DEBUG: Folder ID:', process.env.GOOGLE_DRIVE_FOLDER_ID)
+    
+    // FIX: Use JWT instead of GoogleAuth for service account
+    const auth = new google.auth.JWT(
+      process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+      undefined,
+      private_key,
+      ['https://www.googleapis.com/auth/drive.readonly']
+    )
 
     const drive = google.drive({ version: 'v3', auth })
     
