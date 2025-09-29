@@ -126,7 +126,7 @@ export default function LiveStreamPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://youtube.com/@destinychurch"
+              href="https://www.youtube.com/@DestinyChristianOKC"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-red-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-red-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
