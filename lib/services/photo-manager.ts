@@ -93,7 +93,7 @@ export class PhotoManager {
     }
   }
 
-  private async fetchFromSource(sourceName: string, folderName?: string): Promise<PhotoResponse> {
+  private async fetchFromSource(sourceName: string, _folderName?: string): Promise<PhotoResponse> {
     switch (sourceName) {
       case 'google-drive':
         return this.fetchFromGoogleDrive()
