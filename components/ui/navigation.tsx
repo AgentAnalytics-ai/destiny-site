@@ -54,9 +54,12 @@ export default function Navigation() {
             <Link href="/groups" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200">
               Groups
             </Link>
-            <Link href="/contact" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200">
-              Contact
-            </Link>
+                    <Link href="/live" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200">
+                      Live
+                    </Link>
+                    <Link href="/contact" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200">
+                      Contact
+                    </Link>
           </div>
 
           {/* Professional Mobile menu button */}
@@ -90,6 +93,9 @@ export default function Navigation() {
               </Link>
               <Link href="/groups" className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium transition-colors duration-200">
                 Groups
+              </Link>
+              <Link href="/live" className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium transition-colors duration-200">
+                Live
               </Link>
               <Link href="/contact" className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium transition-colors duration-200">
                 Contact
