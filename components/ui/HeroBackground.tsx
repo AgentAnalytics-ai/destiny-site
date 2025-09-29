@@ -1,83 +1,13 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-
-interface Photo {
-  id: string
-  name: string
-  webViewLink: string
-  thumbnailLink: string
-  mimeType: string
-  isUploaded?: boolean
-}
-
-interface FolderData {
-  folderName: string
-  folderId: string
-  photos: Photo[]
-}
-
 interface HeroBackgroundProps {
   className?: string
 }
 
 export default function HeroBackground({ className = '' }: HeroBackgroundProps) {
-  const [heroPhotos, setHeroPhotos] = useState<Photo[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-
-  useEffect(() => {
-    const fetchHeroPhotos = async () => {
-      try {
-        const response = await fetch('/api/photos')
-        const data = await response.json()
-
-        if (data.success && data.folders) {
-          const heroFolder = data.folders.find((folder: FolderData) => folder.folderName === '01-hero-images')
-          if (heroFolder && heroFolder.photos.length > 0) {
-            setHeroPhotos(heroFolder.photos)
-            console.log(`✅ Loaded ${heroFolder.photos.length} hero photos.`)
-          } else {
-            console.log('No hero images found in 01-hero-images folder. Using fallback.')
-            // Fallback to a default Unsplash image if no uploaded hero images
-            setHeroPhotos([{
-              id: 'fallback-hero',
-              name: 'Default Hero Background',
-              webViewLink: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&h=900&fit=crop',
-              thumbnailLink: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&h=450&fit=crop',
-              mimeType: 'image/jpeg'
-            }])
-          }
-        } else {
-          setError('Failed to load photos from API.')
-          console.error('Failed to load photos from API:', data.error)
-        }
-      } catch (err) {
-        setError('Error fetching hero photos.')
-        console.error('Error fetching hero photos:', err)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchHeroPhotos()
-  }, [])
-
-  // Note: Image rotation removed for simplicity - using single hero image
-
-  if (loading) {
-    return <div className={`${className} bg-gray-800 animate-pulse`}></div>
-  }
-
-  if (error || heroPhotos.length === 0) {
-    return <div className={`${className} bg-gradient-to-br from-blue-900 to-indigo-900 flex items-center justify-center text-white`}>
-      <p>Error loading background photos.</p>
-    </div>
-  }
-
   return (
     <div className={`${className} relative w-full h-full overflow-hidden`}>
-      {/* Direct image path for reliability */}
+      {/* Direct image path - guaranteed to work */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
@@ -87,9 +17,9 @@ export default function HeroBackground({ className = '' }: HeroBackgroundProps) 
         }}
       />
       {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-black opacity-40"></div>
+      <div className="absolute inset-0 bg-black opacity-30"></div>
       {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10"></div>
       
       {/* Animated overlay pattern */}
       <div className="absolute inset-0 opacity-20">
