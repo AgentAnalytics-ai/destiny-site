@@ -13,30 +13,28 @@ export default function HomePage() {
         {/* Dynamic Hero Background */}
         <HeroBackground className="absolute inset-0 z-0" />
         
-        {/* Hero Content */}
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-black/20 backdrop-blur-md rounded-3xl p-16 shadow-2xl border border-white/20">
-            <h1 className="text-6xl md:text-7xl font-bold text-white mb-8 leading-tight drop-shadow-lg">
-              STIR UP YOUR FAITH
-            </h1>
-            <p className="text-2xl md:text-3xl text-white mb-10 leading-relaxed drop-shadow-lg">
-              Welcome to Destiny Church<br />
-              <span className="text-blue-300 font-bold">Where Hope, Faith, and Purpose Come Alive</span>
-            </p>
-                    <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                      <Link 
-                        href="/contact" 
-                        className="bg-white text-gray-800 border-2 border-gray-300 px-10 py-5 rounded-xl text-xl font-semibold hover:bg-gray-50 hover:border-gray-400 hover:shadow-lg transition-all duration-300 transform hover:scale-105"
-                      >
-                        Plan a Visit
-                      </Link>
-                      <Link 
-                        href="/give" 
-                        className="bg-blue-600 text-white border-2 border-blue-600 px-10 py-5 rounded-xl text-xl font-semibold hover:bg-blue-700 hover:border-blue-700 hover:shadow-lg transition-all duration-300 transform hover:scale-105"
-                      >
-                        Give
-                      </Link>
-                    </div>
+        {/* Hero Content - NO BOX, JUST TEXT OVER IMAGE */}
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-6xl md:text-7xl font-bold text-white mb-8 leading-tight drop-shadow-2xl">
+            STIR UP YOUR FAITH
+          </h1>
+          <p className="text-2xl md:text-3xl text-white mb-10 leading-relaxed drop-shadow-2xl">
+            Welcome to Destiny Church<br />
+            <span className="text-blue-300 font-bold">Where Hope, Faith, and Purpose Come Alive</span>
+          </p>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <Link 
+              href="/contact" 
+              className="bg-white/90 text-gray-800 border-2 border-white px-10 py-5 rounded-xl text-xl font-semibold hover:bg-white hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+            >
+              Plan a Visit
+            </Link>
+            <Link 
+              href="/give" 
+              className="bg-blue-600/90 text-white border-2 border-blue-600 px-10 py-5 rounded-xl text-xl font-semibold hover:bg-blue-600 hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+            >
+              Give
+            </Link>
           </div>
         </div>
       </section>
