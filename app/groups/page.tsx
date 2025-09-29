@@ -33,7 +33,7 @@ export default function GroupsPage() {
       leader: "Sister Lisa Williams",
       time: "Tuesdays 10:00 AM",
       location: "Main Campus - Room 105",
-      image: "/uploads/05-testimonials/JLA03494.jpg",
+      image: "/uploads/05-testimonials/JLA03499.jpg",
       churchCenterUrl: "https://destinyokc.churchcenter.com/groups/womens-bible-study"
     },
     {
@@ -50,16 +50,29 @@ export default function GroupsPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              Join Our Community
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Connect with others, grow in faith, and build lasting relationships through our small groups and fellowship opportunities.
-            </p>
+      {/* Hero Section with Background Image */}
+      <section className="relative py-20 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/uploads/03-community/JLA02845 (1).jpg"
+            alt="Destiny Church Community Groups"
+            fill
+            className="object-cover opacity-20"
+            sizes="100vw"
+          />
+        </div>
+        {/* Content Overlay */}
+        <div className="relative z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
+              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+                Join Our Community
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Connect with others, grow in faith, and build lasting relationships through our small groups and fellowship opportunities.
+              </p>
+            </div>
           </div>
         </div>
       </section>
