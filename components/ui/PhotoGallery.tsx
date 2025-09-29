@@ -22,7 +22,6 @@ interface PhotoGalleryProps {
   title?: string
   maxPhotos?: number
   layout?: 'grid' | 'hero' | 'carousel' | 'masonry'
-  showTitles?: boolean
   aspectRatio?: 'square' | 'landscape' | 'portrait' | 'auto'
 }
 
@@ -31,7 +30,6 @@ export default function PhotoGallery({
   title,
   maxPhotos = 12,
   layout = 'grid',
-  showTitles = false,
   aspectRatio = 'landscape'
 }: PhotoGalleryProps) {
   const [folders, setFolders] = useState<FolderData[]>([])
