@@ -77,25 +77,6 @@ export default function LiveStreamPage() {
                 </div>
               </div>
 
-              {/* Recent Services - Moved Up */}
-              <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200">
-                <div className="p-6 border-b border-gray-200">
-                  <h3 className="text-2xl font-semibold text-gray-900">Recent Sunday Services</h3>
-                  <p className="text-gray-600 mt-2">Watch our latest worship services and messages</p>
-                </div>
-                
-                <div className="p-6">
-                  <div style={{position:'relative',overflow:'hidden',paddingTop:'56.25%'}}>
-                    <iframe 
-                      allow="autoplay; fullscreen" 
-                      allowFullScreen={true} 
-                      className="resi-video-frame" 
-                      src="https://control.resi.io/webplayer/video.html?id=YjMwNzBlYWEtY2JiYy00MGQxLWJhMjktNTRiMTQwNDQzMDJmOmU0ZGM2OTcwLTlkNzUtMTFmMC05NGVmLTgzYzY0YTYxZDZjZQ==&type=playlist&autoplay=false" 
-                      style={{position:'absolute',top:0,left:0,width:'100%',height:'100%',border:'none'}}
-                    />
-                  </div>
-                </div>
-              </div>
             </div>
           )}
         </div>
