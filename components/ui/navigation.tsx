@@ -17,22 +17,23 @@ export default function Navigation() {
             <Link href="/" className="flex items-center group">
               <div className="relative">
                 <Image
-                  src="/images/logo/Logo-Destiny-RGB.png"
+                  src="/images/logo/destiny-logo.png"
                   alt="Destiny Church - Where Hope, Faith, and Purpose Come Alive"
-                  width={200}
+                  width={80}
                   height={80}
-                  className="h-16 w-auto transition-transform duration-300 group-hover:scale-105"
+                  className="h-16 w-16 transition-transform duration-300 group-hover:scale-105"
                   priority
                   onError={(e) => {
-                    console.log('Logo failed to load, trying fallback...')
+                    console.log('D logo failed to load, using text fallback...')
                     const target = e.target as HTMLImageElement
-                    target.src = '/images/logo/destiny-logo.png'
+                    target.style.display = 'none'
+                    const parent = target.parentElement
+                    if (parent) {
+                      parent.innerHTML = '<span class="text-2xl font-bold text-blue-600">D</span>'
+                    }
                   }}
                 />
-                {/* Fallback text logo */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="text-2xl font-bold text-blue-600">DESTINY</span>
-                </div>
+                {/* Clean D logo only */}
               </div>
             </Link>
           </div>

@@ -33,8 +33,7 @@ export default function SeamlessEvents({ className = '' }: SeamlessEventsProps) 
           date: '2024-01-28',
           time: '10:00 AM',
           location: 'Destiny Church',
-          description: 'Join us for worship, fellowship, and inspiring message.',
-          image: '/uploads/04-worship/JLA03436 (1).jpg'
+          description: 'Join us for worship, fellowship, and inspiring message.'
         },
         {
           id: '2',
@@ -42,8 +41,7 @@ export default function SeamlessEvents({ className = '' }: SeamlessEventsProps) 
           date: '2024-02-03',
           time: '9:00 AM',
           location: 'Local Community Center',
-          description: 'Serving our community together.',
-          image: '/uploads/02-events/Untitled-1555.jpg'
+          description: 'Serving our community together.'
         },
         {
           id: '3',
@@ -51,8 +49,7 @@ export default function SeamlessEvents({ className = '' }: SeamlessEventsProps) 
           date: '2024-01-30',
           time: '7:00 PM',
           location: 'Various Locations',
-          description: 'Connect with others in meaningful community.',
-          image: '/uploads/03-community/JLA02845 (1).jpg'
+          description: 'Connect with others in meaningful community.'
         }
       ])
       setLoading(false)

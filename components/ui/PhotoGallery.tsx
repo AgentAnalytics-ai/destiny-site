@@ -167,12 +167,7 @@ export default function PhotoGallery({
                 className={getImageClasses()}
                 loading="lazy"
               />
-              {showTitles && (
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6">
-                  <div className="text-white font-semibold text-lg">{photo.name}</div>
-                  <div className="text-white/80 text-sm mt-1">Destiny Church</div>
-                </div>
-              )}
+              {/* Photo names removed as requested */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
             </div>
           </div>
