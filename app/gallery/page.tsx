@@ -28,7 +28,6 @@ export default function GalleryPage() {
             maxPhotos={6}
             layout="grid"
             aspectRatio="landscape"
-            showTitles={true}
           />
         </div>
       </section>
@@ -42,7 +41,6 @@ export default function GalleryPage() {
             maxPhotos={12}
             layout="masonry"
             aspectRatio="auto"
-            showTitles={true}
           />
         </div>
       </section>
@@ -56,7 +54,6 @@ export default function GalleryPage() {
             maxPhotos={12}
             layout="grid"
             aspectRatio="landscape"
-            showTitles={true}
           />
         </div>
       </section>
@@ -70,7 +67,6 @@ export default function GalleryPage() {
             maxPhotos={12}
             layout="carousel"
             aspectRatio="landscape"
-            showTitles={true}
           />
         </div>
       </section>
@@ -84,7 +80,6 @@ export default function GalleryPage() {
             maxPhotos={8}
             layout="grid"
             aspectRatio="portrait"
-            showTitles={true}
           />
         </div>
       </section>
@@ -98,7 +93,6 @@ export default function GalleryPage() {
             maxPhotos={6}
             layout="grid"
             aspectRatio="landscape"
-            showTitles={true}
           />
         </div>
       </section>

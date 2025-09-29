@@ -70,7 +70,6 @@ export default function HomePage() {
             maxPhotos={8}
             layout="grid"
             aspectRatio="landscape"
-            showTitles={true}
           />
         </div>
       </section>
@@ -91,7 +90,6 @@ export default function HomePage() {
             maxPhotos={6}
             layout="carousel"
             aspectRatio="landscape"
-            showTitles={true}
           />
         </div>
       </section>
@@ -112,7 +110,6 @@ export default function HomePage() {
             maxPhotos={6}
             layout="grid"
             aspectRatio="landscape"
-            showTitles={true}
           />
           
           <div className="text-center mt-12">

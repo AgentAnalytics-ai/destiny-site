@@ -8,7 +8,6 @@ export interface PhotoSection {
   layout: 'grid' | 'hero' | 'carousel' | 'masonry'
   aspectRatio: 'square' | 'landscape' | 'portrait' | 'auto'
   maxPhotos: number
-  showTitles: boolean
   priority: number
   pages: string[]
 }
@@ -21,7 +20,6 @@ export const PHOTO_SECTIONS: Record<string, PhotoSection> = {
     layout: 'hero',
     aspectRatio: 'landscape',
     maxPhotos: 3,
-    showTitles: false,
     priority: 1,
     pages: ['homepage', 'about']
   },
@@ -32,7 +30,6 @@ export const PHOTO_SECTIONS: Record<string, PhotoSection> = {
     layout: 'grid',
     aspectRatio: 'landscape',
     maxPhotos: 12,
-    showTitles: true,
     priority: 2,
     pages: ['events', 'homepage']
   },
@@ -43,7 +40,6 @@ export const PHOTO_SECTIONS: Record<string, PhotoSection> = {
     layout: 'masonry',
     aspectRatio: 'auto',
     maxPhotos: 8,
-    showTitles: false,
     priority: 3,
     pages: ['homepage', 'about', 'gallery']
   },
@@ -54,7 +50,6 @@ export const PHOTO_SECTIONS: Record<string, PhotoSection> = {
     layout: 'grid',
     aspectRatio: 'landscape',
     maxPhotos: 15,
-    showTitles: false,
     priority: 4,
     pages: ['homepage', 'gallery']
   },
@@ -65,7 +60,6 @@ export const PHOTO_SECTIONS: Record<string, PhotoSection> = {
     layout: 'carousel',
     aspectRatio: 'portrait',
     maxPhotos: 6,
-    showTitles: true,
     priority: 5,
     pages: ['homepage', 'about']
   },
@@ -76,7 +70,6 @@ export const PHOTO_SECTIONS: Record<string, PhotoSection> = {
     layout: 'grid',
     aspectRatio: 'landscape',
     maxPhotos: 10,
-    showTitles: false,
     priority: 6,
     pages: ['gallery']
   },
@@ -87,7 +80,6 @@ export const PHOTO_SECTIONS: Record<string, PhotoSection> = {
     layout: 'grid',
     aspectRatio: 'landscape',
     maxPhotos: 8,
-    showTitles: true,
     priority: 7,
     pages: ['gallery', 'homepage']
   }
