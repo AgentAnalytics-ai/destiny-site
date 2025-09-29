@@ -2,23 +2,16 @@
 
 import Link from 'next/link'
 import PhotoGallery from '@/components/ui/PhotoGallery'
-import SeamlessGiving from '@/components/ui/SeamlessGiving'
 import SeamlessEvents from '@/components/ui/SeamlessEvents'
+import HeroBackground from '@/components/ui/HeroBackground'
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Professional Hero Section */}
-      <section className="relative py-24 text-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-indigo-50">
-        {/* Hero Images Background */}
-        <div className="absolute inset-0 z-0">
-          <PhotoGallery 
-            folderName="01-hero-images"
-            layout="hero"
-            maxPhotos={3}
-            aspectRatio="landscape"
-          />
-        </div>
+      {/* Amazing Hero Section with Dynamic Background */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Dynamic Hero Background */}
+        <HeroBackground className="absolute inset-0 z-0" />
         
         {/* Hero Content */}
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
