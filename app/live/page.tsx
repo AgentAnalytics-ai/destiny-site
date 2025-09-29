@@ -42,52 +42,57 @@ export default function LiveStreamPage() {
         </div>
       </section>
 
-      {/* Live Stream Section */}
+      {/* Live Stream or Playlist Section */}
       <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Professional Resi Player */}
-          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200">
-            <ResiPlayer 
-              streamId={process.env.NEXT_PUBLIC_RESI_STREAM_ID || "your-resi-stream-id"}
-              className="w-full"
-            />
-            
-            {/* Stream Info */}
-            <div className="p-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">Sunday Service</h2>
-              <p className="text-gray-600 mb-4">Join us for worship, fellowship, and an inspiring message that will strengthen your faith.</p>
-              <div className="flex items-center text-sm text-gray-500">
-                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span>Every Sunday at 10:00 AM CST</span>
-              </div>
-            </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Watch Live</h2>
+            <p className="text-xl text-gray-600">Join us for live worship services, special events, and community gatherings from anywhere in the world.</p>
           </div>
-
-          {/* Offline Message - Only show when stream is confirmed offline */}
-          {!isLive && (
-            <div className="text-center">
-              <div className="bg-gray-50 rounded-2xl p-12 border border-gray-200">
-                <div className="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-6 flex items-center justify-center">
-                  <svg className="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+          
+          {isLive ? (
+            // Live Stream Player
+            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200">
+              <ResiPlayer 
+                streamId={process.env.NEXT_PUBLIC_RESI_STREAM_ID || "your-resi-stream-id"}
+                className="w-full"
+              />
+            </div>
+          ) : (
+            // Offline State with Playlist
+            <div className="space-y-8">
+              {/* Offline Message */}
+              <div className="bg-gray-900 rounded-2xl p-8 text-center text-white">
+                <div className="w-16 h-16 bg-gray-700 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
                 </div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">No Live Stream Currently</h2>
-                <p className="text-xl text-gray-600 mb-8">
-                  We&apos;re not currently streaming. Join us for our next live service!
-                </p>
+                <h3 className="text-2xl font-semibold mb-2">Stream Offline</h3>
+                <p className="text-gray-300 mb-4">We're not currently streaming. Check back soon!</p>
+                <div className="bg-white/10 rounded-lg p-4 max-w-md mx-auto">
+                  <p className="text-sm text-gray-300">Next Service</p>
+                  <p className="text-lg font-semibold">Sunday Service</p>
+                  <p className="text-sm text-gray-400">Every Sunday at 10:00 AM CST</p>
+                </div>
+              </div>
+
+              {/* Recent Services - Moved Up */}
+              <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200">
+                <div className="p-6 border-b border-gray-200">
+                  <h3 className="text-2xl font-semibold text-gray-900">Recent Sunday Services</h3>
+                  <p className="text-gray-600 mt-2">Watch our latest worship services and messages</p>
+                </div>
                 
-                {/* Upcoming Service Info */}
-                <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-200 max-w-md mx-auto">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Next Service</h3>
-                  <p className="text-gray-600 mb-4">Sunday Service</p>
-                  <div className="flex items-center justify-center text-sm text-gray-500">
-                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    <span>Every Sunday at 10:00 AM CST</span>
+                <div className="p-6">
+                  <div style={{position:'relative',overflow:'hidden',paddingTop:'56.25%'}}>
+                    <iframe 
+                      allow="autoplay; fullscreen" 
+                      allowFullScreen={true} 
+                      className="resi-video-frame" 
+                      src="https://control.resi.io/webplayer/video.html?id=YjMwNzBlYWEtY2JiYy00MGQxLWJhMjktNTRiMTQwNDQzMDJmOmU0ZGM2OTcwLTlkNzUtMTFmMC05NGVmLTgzYzY0YTYxZDZjZQ==&type=playlist&autoplay=false" 
+                      style={{position:'absolute',top:0,left:0,width:'100%',height:'100%',border:'none'}}
+                    />
                   </div>
                 </div>
               </div>
