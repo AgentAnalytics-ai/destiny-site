@@ -71,7 +71,7 @@ export class PhotoManager {
 
     for (const source of availableSources) {
       try {
-        const photos = await this.fetchFromSource(source.name, folderName)
+        const photos = await this.fetchFromSource(source.name)
         if (photos && photos.success) {
           return {
             ...photos,
@@ -93,7 +93,7 @@ export class PhotoManager {
     }
   }
 
-  private async fetchFromSource(sourceName: string, _folderName?: string): Promise<PhotoResponse> {
+  private async fetchFromSource(sourceName: string): Promise<PhotoResponse> {
     switch (sourceName) {
       case 'google-drive':
         return this.fetchFromGoogleDrive()
