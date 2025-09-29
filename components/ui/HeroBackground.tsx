@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Image from 'next/image'
 
 interface Photo {
   id: string
@@ -24,7 +23,6 @@ interface HeroBackgroundProps {
 
 export default function HeroBackground({ className = '' }: HeroBackgroundProps) {
   const [heroPhotos, setHeroPhotos] = useState<Photo[]>([])
-  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -65,15 +63,7 @@ export default function HeroBackground({ className = '' }: HeroBackgroundProps) 
     fetchHeroPhotos()
   }, [])
 
-  // Rotate through images every 8 seconds
-  useEffect(() => {
-    if (heroPhotos.length > 1) {
-      const interval = setInterval(() => {
-        setCurrentPhotoIndex((prevIndex) => (prevIndex + 1) % heroPhotos.length)
-      }, 8000) // Change image every 8 seconds
-      return () => clearInterval(interval)
-    }
-  }, [heroPhotos])
+  // Note: Image rotation removed for simplicity - using single hero image
 
   if (loading) {
     return <div className={`${className} bg-gray-800 animate-pulse`}></div>
@@ -84,8 +74,6 @@ export default function HeroBackground({ className = '' }: HeroBackgroundProps) 
       <p>Error loading background photos.</p>
     </div>
   }
-
-  const currentPhoto = heroPhotos[currentPhotoIndex]
 
   return (
     <div className={`${className} relative w-full h-full overflow-hidden`}>
