@@ -23,20 +23,20 @@ export default function HomePage() {
               Welcome to Destiny Church<br />
               <span className="text-blue-600 font-semibold">Where Hope, Faith, and Purpose Come Alive</span>
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link 
-                href="/contact" 
-                className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
-              >
-                Join Our Community
-              </Link>
-              <Link 
-                href="/events" 
-                className="bg-white text-blue-600 border-2 border-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-50 transition-colors duration-200 shadow-lg hover:shadow-xl"
-              >
-                Find an Event
-              </Link>
-            </div>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                      <Link 
+                        href="/contact" 
+                        className="bg-white/90 text-gray-700 border border-gray-300 px-8 py-4 rounded-lg text-lg font-medium hover:bg-white hover:shadow-md transition-all duration-200"
+                      >
+                        Plan a Visit
+                      </Link>
+                      <Link 
+                        href="/give" 
+                        className="bg-white/90 text-blue-600 border border-gray-300 px-8 py-4 rounded-lg text-lg font-medium hover:bg-white hover:shadow-md transition-all duration-200"
+                      >
+                        Give
+                      </Link>
+                    </div>
           </div>
         </div>
       </section>
