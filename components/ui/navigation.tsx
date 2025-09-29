@@ -12,19 +12,16 @@ export default function Navigation() {
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <Image
-                src="https://destiny-site.vercel.app/images/logo/destiny-logo.png"
+                src="/images/logo/destiny-logo.png"
                 alt="Destiny Church"
                 width={200}
                 height={80}
                 className="h-20 w-auto"
+                priority
                 onError={(e) => {
-                  console.log('Logo failed to load:', e.currentTarget.src);
-                  // Fallback to text if image fails
-                  e.currentTarget.style.display = 'none';
-                  const nextElement = e.currentTarget.nextElementSibling as HTMLElement;
-                  if (nextElement) {
-                    nextElement.style.display = 'block';
-                  }
+                  console.log('Logo failed to load, trying fallback...')
+                  const target = e.target as HTMLImageElement
+                  target.src = '/images/logo/Destiny logo.jpg'
                 }}
               />
               <span className="text-4xl font-bold text-blue-600 hidden">DESTINY</span>
