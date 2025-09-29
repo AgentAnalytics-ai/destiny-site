@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 
 interface Event {
   id: string
@@ -86,9 +87,11 @@ export default function SeamlessEvents({ className = '' }: SeamlessEventsProps) 
           <div className="flex flex-col md:flex-row">
             {event.image && (
               <div className="md:w-1/3 h-48 md:h-auto">
-                <img
+                <Image
                   src={event.image}
                   alt={event.title}
+                  width={400}
+                  height={300}
                   className="w-full h-full object-cover"
                 />
               </div>

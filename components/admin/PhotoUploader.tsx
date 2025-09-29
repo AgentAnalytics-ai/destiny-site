@@ -1,15 +1,25 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
+
+interface UploadedPhoto {
+  id: string
+  name: string
+  webViewLink: string
+  thumbnailLink: string
+  mimeType: string
+  folder: string
+}
 
 interface PhotoUploaderProps {
   folder: string
-  onUploadComplete?: (photo: any) => void
+  onUploadComplete?: (photo: UploadedPhoto) => void
 }
 
 export default function PhotoUploader({ folder, onUploadComplete }: PhotoUploaderProps) {
   const [uploading, setUploading] = useState(false)
-  const [uploadedPhotos, setUploadedPhotos] = useState<any[]>([])
+  const [uploadedPhotos, setUploadedPhotos] = useState<UploadedPhoto[]>([])
 
   const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files
@@ -65,9 +75,11 @@ export default function PhotoUploader({ folder, onUploadComplete }: PhotoUploade
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {uploadedPhotos.map((photo) => (
             <div key={photo.id} className="relative">
-              <img
+              <Image
                 src={photo.webViewLink}
                 alt={photo.name}
+                width={100}
+                height={96}
                 className="w-full h-24 object-cover rounded-lg"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-xs p-1 rounded-b-lg">

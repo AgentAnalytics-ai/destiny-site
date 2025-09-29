@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import PhotoUploader from '@/components/admin/PhotoUploader'
 
 interface Photo {
@@ -38,8 +39,8 @@ export default function AdminPhotosPage() {
       
       if (data.success) {
         // Flatten all photos from all folders
-        const allPhotos = data.folders.flatMap((folder: any) => 
-          folder.photos.map((photo: any) => ({
+        const allPhotos = data.folders.flatMap((folder: { folderName: string; photos: Photo[] }) => 
+          folder.photos.map((photo: Photo) => ({
             ...photo,
             folder: folder.folderName
           }))
@@ -110,9 +111,11 @@ export default function AdminPhotosPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
               {photos.map((photo) => (
                 <div key={photo.id} className="relative group">
-                  <img
+                  <Image
                     src={photo.thumbnailLink}
                     alt={photo.name}
+                    width={200}
+                    height={128}
                     className="w-full h-32 object-cover rounded-lg"
                   />
                   <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-200 rounded-lg flex items-center justify-center">

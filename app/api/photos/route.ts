@@ -208,7 +208,14 @@ async function getUploadedPhotos() {
     const uploadsDir = join(process.cwd(), 'public', 'uploads')
     const folders = await readdir(uploadsDir)
     
-    const uploadedPhotos: Record<string, any[]> = {}
+    const uploadedPhotos: Record<string, Array<{
+      id: string
+      name: string
+      webViewLink: string
+      thumbnailLink: string
+      mimeType: string
+      isUploaded: boolean
+    }>> = {}
     
     for (const folder of folders) {
       const folderPath = join(uploadsDir, folder)
