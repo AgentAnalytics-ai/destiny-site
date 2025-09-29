@@ -69,7 +69,7 @@ export default function LiveStreamPage() {
                   </svg>
                 </div>
                 <h3 className="text-2xl font-semibold mb-2">Stream Offline</h3>
-                <p className="text-gray-300 mb-4">We're not currently streaming. Check back soon!</p>
+                <p className="text-gray-300 mb-4">We&apos;re not currently streaming. Check back soon!</p>
                 <div className="bg-white/10 rounded-lg p-4 max-w-md mx-auto">
                   <p className="text-sm text-gray-300">Next Service</p>
                   <p className="text-lg font-semibold">Sunday Service</p>
