@@ -18,8 +18,9 @@ export default function HeroBackground({ className = '' }: HeroBackgroundProps) 
         quality={90}
         sizes="100vw"
         className="object-cover"
+        onLoad={() => console.log('✅ Hero image loaded successfully!')}
         onError={(e) => {
-          console.log('Primary image failed, trying fallback...')
+          console.log('❌ Primary image failed, trying fallback...')
           const target = e.target as HTMLImageElement
           target.src = '/uploads/01-hero-images/hero-worship-service.png'
         }}

@@ -15,13 +15,13 @@ export default function HomePage() {
         
         {/* Hero Content */}
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white/95 backdrop-blur-md rounded-3xl p-16 shadow-2xl border border-white/20">
-            <h1 className="text-6xl md:text-7xl font-bold text-gray-900 mb-8 leading-tight">
+          <div className="bg-black/20 backdrop-blur-md rounded-3xl p-16 shadow-2xl border border-white/20">
+            <h1 className="text-6xl md:text-7xl font-bold text-white mb-8 leading-tight drop-shadow-lg">
               STIR UP YOUR FAITH
             </h1>
-            <p className="text-2xl md:text-3xl text-gray-700 mb-10 leading-relaxed">
+            <p className="text-2xl md:text-3xl text-white mb-10 leading-relaxed drop-shadow-lg">
               Welcome to Destiny Church<br />
-              <span className="text-blue-600 font-bold">Where Hope, Faith, and Purpose Come Alive</span>
+              <span className="text-blue-300 font-bold">Where Hope, Faith, and Purpose Come Alive</span>
             </p>
                     <div className="flex flex-col sm:flex-row gap-6 justify-center">
                       <Link 
