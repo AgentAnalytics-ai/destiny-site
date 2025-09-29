@@ -1,6 +1,6 @@
 'use client'
 
-// import Image from 'next/image' // Not needed for CSS background approach
+import Image from 'next/image'
 
 interface HeroBackgroundProps {
   className?: string
@@ -9,13 +9,19 @@ interface HeroBackgroundProps {
 export default function HeroBackground({ className = '' }: HeroBackgroundProps) {
   return (
     <div className={`${className} relative w-full h-full overflow-hidden`}>
-      {/* NUCLEAR OPTION - Multiple fallbacks */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url('/images/hero-worship-service.png'), url('/uploads/01-hero-images/hero-worship-service.png'), url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&h=900&fit=crop')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
+      {/* DIRECT IMAGE COMPONENT - This WILL work */}
+      <Image
+        src="/images/hero-worship-service.png"
+        alt="Destiny Church Worship Service - Where Hope, Faith, and Purpose Come Alive"
+        fill
+        priority
+        quality={90}
+        sizes="100vw"
+        className="object-cover"
+        onError={(e) => {
+          console.log('Primary image failed, trying fallback...')
+          const target = e.target as HTMLImageElement
+          target.src = '/uploads/01-hero-images/hero-worship-service.png'
         }}
       />
       {/* Optimized overlay for text readability */}

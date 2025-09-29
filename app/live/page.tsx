@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import ResiPlayer from '@/components/ui/ResiPlayer'
 
 export default function LiveStreamPage() {
   const [isLive, setIsLive] = useState(false)
@@ -44,39 +45,28 @@ export default function LiveStreamPage() {
       {/* Live Stream Section */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          {isLive ? (
-            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200">
-              {/* Live Stream Player */}
-              <div className="relative aspect-video bg-black">
-                {/* Resi Video Player - Replace with your actual Resi embed code */}
-                <iframe
-                  src="https://player.resi.io/your-resi-stream-id"
-                  title="Destiny Church Live Stream"
-                  className="w-full h-full"
-                  allowFullScreen
-                  allow="autoplay; fullscreen; picture-in-picture"
-                />
-                
-                {/* Live Badge */}
-                <div className="absolute top-4 left-4 bg-red-600 text-white px-4 py-2 rounded-full font-semibold flex items-center">
-                  <div className="w-3 h-3 bg-white rounded-full mr-2 animate-pulse"></div>
-                  LIVE NOW
-                </div>
-              </div>
-              
-              {/* Stream Info */}
-              <div className="p-6">
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">Sunday Service</h2>
-                <p className="text-gray-600 mb-4">Join us for worship, fellowship, and an inspiring message that will strengthen your faith.</p>
-                <div className="flex items-center text-sm text-gray-500">
-                  <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <span>Every Sunday at 10:00 AM CST</span>
-                </div>
+          {/* Professional Resi Player */}
+          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200">
+            <ResiPlayer 
+              streamId={process.env.NEXT_PUBLIC_RESI_STREAM_ID || "your-resi-stream-id"}
+              className="w-full"
+            />
+            
+            {/* Stream Info */}
+            <div className="p-6">
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">Sunday Service</h2>
+              <p className="text-gray-600 mb-4">Join us for worship, fellowship, and an inspiring message that will strengthen your faith.</p>
+              <div className="flex items-center text-sm text-gray-500">
+                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Every Sunday at 10:00 AM CST</span>
               </div>
             </div>
-          ) : (
+          </div>
+
+          {/* Offline Message - Only show when stream is confirmed offline */}
+          {!isLive && (
             <div className="text-center">
               <div className="bg-gray-50 rounded-2xl p-12 border border-gray-200">
                 <div className="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-6 flex items-center justify-center">
@@ -115,28 +105,37 @@ export default function LiveStreamPage() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Recent Video Cards */}
+            {/* Recent Video Cards - Using actual video thumbnails */}
             {[
               {
                 title: "Stir Up Your Faith",
                 date: "January 26, 2025",
-                thumbnail: "/uploads/02-events/Untitled-1555.jpg",
-                duration: "45:30"
+                thumbnail: "/uploads/04-worship/JLA03436 (1).jpg", // Worship service photo
+                duration: "45:30",
+                videoUrl: "https://youtube.com/watch?v=example1"
               },
               {
                 title: "Walking in Purpose",
                 date: "January 19, 2025", 
-                thumbnail: "/uploads/02-events/Untitled-2464.jpg",
-                duration: "42:15"
+                thumbnail: "/uploads/04-worship/JLA03499.jpg", // Another worship photo
+                duration: "42:15",
+                videoUrl: "https://youtube.com/watch?v=example2"
               },
               {
                 title: "Community of Faith",
                 date: "January 12, 2025",
-                thumbnail: "/uploads/02-events/Untitled-8099.jpg", 
-                duration: "38:45"
+                thumbnail: "/uploads/04-worship/JLA03436 (1).jpg", // Worship service photo
+                duration: "38:45",
+                videoUrl: "https://youtube.com/watch?v=example3"
               }
             ].map((video, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+              <a 
+                key={index} 
+                href={video.videoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-105 block"
+              >
                 <div className="relative aspect-video">
                   <Image
                     src={video.thumbnail}
@@ -145,8 +144,8 @@ export default function LiveStreamPage() {
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                    <div className="bg-white/90 rounded-full p-3 hover:bg-white transition-colors cursor-pointer">
+                  <div className="absolute inset-0 bg-black/20 flex items-center justify-center group">
+                    <div className="bg-white/90 rounded-full p-3 group-hover:bg-white group-hover:scale-110 transition-all duration-300">
                       <svg className="w-8 h-8 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M8 5v14l11-7z"/>
                       </svg>
@@ -160,7 +159,7 @@ export default function LiveStreamPage() {
                   <h3 className="font-semibold text-gray-900 mb-2">{video.title}</h3>
                   <p className="text-sm text-gray-500">{video.date}</p>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
