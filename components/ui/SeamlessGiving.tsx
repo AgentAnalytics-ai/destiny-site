@@ -28,9 +28,9 @@ export default function SeamlessGiving({ className = '' }: SeamlessGivingProps) 
     return (
       <button
         onClick={() => setIsOpen(true)}
-        className={`bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 ${className}`}
+        className={`text-gray-600 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200 ${className}`}
       >
-        Give Now
+        Give
       </button>
     )
   }
@@ -39,7 +39,7 @@ export default function SeamlessGiving({ className = '' }: SeamlessGivingProps) 
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl">
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold text-gray-900">Give to Destiny Church</h2>
+          <h2 className="text-2xl font-bold text-gray-900">Support Our Mission</h2>
           <button
             onClick={() => setIsOpen(false)}
             className="text-gray-400 hover:text-gray-600 text-2xl"
@@ -97,7 +97,7 @@ export default function SeamlessGiving({ className = '' }: SeamlessGivingProps) 
             type="submit"
             className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white py-4 rounded-lg text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
           >
-            Continue to Secure Giving
+            Support Our Community
           </button>
         </form>
 

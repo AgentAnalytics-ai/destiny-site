@@ -35,9 +35,14 @@ export default function HomePage() {
                 href="/contact" 
                 className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
               >
-                Plan a Visit
+                Join Our Community
               </Link>
-              <SeamlessGiving className="bg-white text-blue-600 border-2 border-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-50 transition-colors duration-200 shadow-lg hover:shadow-xl" />
+              <Link 
+                href="/events" 
+                className="bg-white text-blue-600 border-2 border-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-50 transition-colors duration-200 shadow-lg hover:shadow-xl"
+              >
+                Find an Event
+              </Link>
             </div>
           </div>
         </div>

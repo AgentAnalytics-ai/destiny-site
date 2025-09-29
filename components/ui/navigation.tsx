@@ -52,7 +52,10 @@ export default function Navigation() {
               Gallery
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-200 group-hover:w-full"></span>
             </Link>
-            <SeamlessGiving className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium" />
+            <div className="relative group">
+              <SeamlessGiving className="text-gray-600 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200" />
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-200 group-hover:w-full"></span>
+            </div>
             <Link href="/groups" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200 relative group">
               Groups
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-200 group-hover:w-full"></span>
@@ -90,7 +93,7 @@ export default function Navigation() {
                 Gallery
               </Link>
               <div className="mx-3 my-2">
-                <SeamlessGiving className="bg-blue-600 text-white block px-3 py-2 text-base font-medium rounded-lg text-center w-full" />
+                <SeamlessGiving className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium transition-colors duration-200 text-center w-full" />
               </div>
               <Link href="/groups" className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium transition-colors duration-200">
                 Groups
