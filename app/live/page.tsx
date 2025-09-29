@@ -86,26 +86,48 @@ export default function LiveStreamPage() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Sunday Services</h2>
-            <p className="text-xl text-gray-600">Watch recent sermons and catch up on past services</p>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Watch Recent Services</h2>
+            <p className="text-xl text-gray-600">Catch up on our latest worship services and prayer sessions</p>
           </div>
           
-          {/* Resi Playlist Embed */}
-          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200">
-            <div className="p-6 border-b border-gray-200">
-              <h3 className="text-2xl font-semibold text-gray-900">Recent Sunday Services</h3>
-              <p className="text-gray-600 mt-2">Our latest worship services and messages</p>
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* Sunday Services Playlist */}
+            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200">
+              <div className="p-6 border-b border-gray-200">
+                <h3 className="text-2xl font-semibold text-gray-900">Sunday Services</h3>
+                <p className="text-gray-600 mt-2">Our latest worship services and messages</p>
+              </div>
+              
+              <div className="p-6">
+                <div style={{position:'relative',overflow:'hidden',paddingTop:'56.25%'}}>
+                  <iframe 
+                    allow="autoplay; fullscreen" 
+                    allowFullScreen={true} 
+                    className="resi-video-frame" 
+                    src="https://control.resi.io/webplayer/video.html?id=YjMwNzBlYWEtY2JiYy00MGQxLWJhMjktNTRiMTQwNDQzMDJmOmU0ZGM2OTcwLTlkNzUtMTFmMC05NGVmLTgzYzY0YTYxZDZjZQ==&type=playlist&autoplay=false" 
+                    style={{position:'absolute',top:0,left:0,width:'100%',height:'100%',border:'none'}}
+                  />
+                </div>
+              </div>
             </div>
-            
-            <div className="p-6">
-              <div style={{position:'relative',overflow:'hidden',paddingTop:'56.25%'}}>
-                <iframe 
-                  allow="autoplay; fullscreen" 
-                  allowFullScreen={true} 
-                  className="resi-video-frame" 
-                  src="https://control.resi.io/webplayer/video.html?id=YjMwNzBlYWEtY2JiYy00MGQxLWJhMjktNTRiMTQwNDQzMDJmOmU0ZGM2OTcwLTlkNzUtMTFmMC05NGVmLTgzYzY0YTYxZDZjZQ==&type=playlist&autoplay=false" 
-                  style={{position:'absolute',top:0,left:0,width:'100%',height:'100%',border:'none'}}
-                />
+
+            {/* Tuesday Morning Prayer Playlist */}
+            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200">
+              <div className="p-6 border-b border-gray-200">
+                <h3 className="text-2xl font-semibold text-gray-900">Tuesday Morning Prayer</h3>
+                <p className="text-gray-600 mt-2">Join us for weekly prayer and reflection</p>
+              </div>
+              
+              <div className="p-6">
+                <div style={{position:'relative',overflow:'hidden',paddingTop:'56.25%'}}>
+                  <iframe 
+                    allow="autoplay; fullscreen" 
+                    allowFullScreen={true} 
+                    className="resi-video-frame" 
+                    src="https://control.resi.io/webplayer/video.html?id=YOUR_TUESDAY_PRAYER_PLAYLIST_ID&type=playlist&autoplay=false" 
+                    style={{position:'absolute',top:0,left:0,width:'100%',height:'100%',border:'none'}}
+                  />
+                </div>
               </div>
             </div>
           </div>
