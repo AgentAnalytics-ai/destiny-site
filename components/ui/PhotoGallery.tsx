@@ -41,8 +41,8 @@ export default function PhotoGallery({
   useEffect(() => {
     const fetchPhotos = async () => {
       try {
-        // PROFESSIONAL: Go straight to backup system - no Google Drive complexity
-        const response = await fetch('/api/photos-backup')
+        // ENHANCED: Use the new photo system with uploaded photos
+        const response = await fetch('/api/photos')
         const data = await response.json()
         
         if (data.success) {
