@@ -52,7 +52,7 @@ export default function HomePage() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Community</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Experience the warmth and fellowship of our church family. We're more than just a congregation – we're a community united in faith, love, and purpose.
+              Experience the warmth and fellowship of our church family. We&apos;re more than just a congregation – we&apos;re a community united in faith, love, and purpose.
             </p>
           </div>
           
@@ -73,7 +73,7 @@ export default function HomePage() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Worship & Service</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Join us for powerful worship services, meaningful fellowship, and life-changing experiences that strengthen your faith and connect you with God's purpose.
+              Join us for powerful worship services, meaningful fellowship, and life-changing experiences that strengthen your faith and connect you with God&apos;s purpose.
             </p>
           </div>
           
@@ -126,7 +126,7 @@ export default function HomePage() {
           </h2>
           <p className="text-xl text-blue-100 mb-8 leading-relaxed">
             Experience the love, hope, and purpose that comes from being part of a faith community. 
-            We'd love to welcome you to Destiny Church.
+            We&apos;d love to welcome you to Destiny Church.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 

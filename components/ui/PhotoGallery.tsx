@@ -128,7 +128,7 @@ export default function PhotoGallery({
         <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-12 max-w-lg mx-auto">
           <div className="text-blue-600 font-semibold text-xl mb-3">Photos Coming Soon</div>
           <div className="text-blue-500 text-sm leading-relaxed">
-            We're setting up our professional photo gallery. Check back soon to see our amazing church community in action!
+            We&apos;re setting up our professional photo gallery. Check back soon to see our amazing church community in action!
           </div>
           <div className="mt-6">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-lg text-sm font-medium">

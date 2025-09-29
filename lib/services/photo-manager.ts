@@ -64,7 +64,7 @@ export class PhotoManager {
     )
   }
 
-  public async getPhotos(folderName?: string): Promise<PhotoResponse> {
+  public async getPhotos(): Promise<PhotoResponse> {
     const availableSources = Array.from(this.sources.values())
       .filter(source => source.isAvailable)
       .sort((a, b) => a.priority - b.priority)
