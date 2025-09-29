@@ -3,53 +3,105 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 
+interface Photo {
+  id: string
+  name: string
+  webViewLink: string
+  thumbnailLink: string
+  mimeType: string
+  isUploaded?: boolean
+}
+
+interface FolderData {
+  folderName: string
+  folderId: string
+  photos: Photo[]
+}
+
 interface HeroBackgroundProps {
   className?: string
 }
 
 export default function HeroBackground({ className = '' }: HeroBackgroundProps) {
-  const [currentImage, setCurrentImage] = useState(0)
-  
-  // Your real Destiny Church photos for amazing backgrounds
-  const backgroundImages = [
-    '/uploads/01-hero-images/JLA03436 (1).jpg',
-    '/uploads/02-events/Untitled-1555.jpg',
-    '/uploads/03-community/JLA02845 (1).jpg',
-    '/uploads/05-testimonials/JLA03494.jpg',
-    '/uploads/06-marketing/JLA03275.jpg'
-  ]
+  const [heroPhotos, setHeroPhotos] = useState<Photo[]>([])
+  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    const fetchHeroPhotos = async () => {
+      try {
+        const response = await fetch('/api/photos')
+        const data = await response.json()
+
+        if (data.success && data.folders) {
+          const heroFolder = data.folders.find((folder: FolderData) => folder.folderName === '01-hero-images')
+          if (heroFolder && heroFolder.photos.length > 0) {
+            setHeroPhotos(heroFolder.photos)
+            console.log(`✅ Loaded ${heroFolder.photos.length} hero photos.`)
+          } else {
+            console.log('No hero images found in 01-hero-images folder. Using fallback.')
+            // Fallback to a default Unsplash image if no uploaded hero images
+            setHeroPhotos([{
+              id: 'fallback-hero',
+              name: 'Default Hero Background',
+              webViewLink: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&h=900&fit=crop',
+              thumbnailLink: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&h=450&fit=crop',
+              mimeType: 'image/jpeg'
+            }])
+          }
+        } else {
+          setError('Failed to load photos from API.')
+          console.error('Failed to load photos from API:', data.error)
+        }
+      } catch (err) {
+        setError('Error fetching hero photos.')
+        console.error('Error fetching hero photos:', err)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchHeroPhotos()
+  }, [])
 
   // Rotate through images every 8 seconds
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % backgroundImages.length)
-    }, 8000)
-    return () => clearInterval(interval)
-  }, [backgroundImages.length])
+    if (heroPhotos.length > 1) {
+      const interval = setInterval(() => {
+        setCurrentPhotoIndex((prevIndex) => (prevIndex + 1) % heroPhotos.length)
+      }, 8000) // Change image every 8 seconds
+      return () => clearInterval(interval)
+    }
+  }, [heroPhotos])
+
+  if (loading) {
+    return <div className={`${className} bg-gray-800 animate-pulse`}></div>
+  }
+
+  if (error || heroPhotos.length === 0) {
+    return <div className={`${className} bg-gradient-to-br from-blue-900 to-indigo-900 flex items-center justify-center text-white`}>
+      <p>Error loading background photos.</p>
+    </div>
+  }
+
+  const currentPhoto = heroPhotos[currentPhotoIndex]
 
   return (
-    <div className={`relative overflow-hidden ${className}`}>
-      {/* Dynamic Background Images */}
-      <div className="absolute inset-0">
-        {backgroundImages.map((image, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-2000 ease-in-out ${
-              index === currentImage ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <Image
-              src={image}
-              alt={`Destiny Church Background ${index + 1}`}
-              fill
-              className="object-cover"
-              priority={index === 0}
-            />
-            {/* Dark overlay for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/70"></div>
-          </div>
-        ))}
-      </div>
+    <div className={`${className} relative w-full h-full overflow-hidden`}>
+      <Image
+        src={currentPhoto.webViewLink}
+        alt={currentPhoto.name}
+        fill
+        style={{ objectFit: 'cover' }}
+        priority={currentPhotoIndex === 0} // Prioritize loading the first image
+        className="transition-opacity duration-1000 ease-in-out opacity-100"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+      />
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-black opacity-50"></div>
+      {/* Subtle gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30"></div>
       
       {/* Animated overlay pattern */}
       <div className="absolute inset-0 opacity-20">
