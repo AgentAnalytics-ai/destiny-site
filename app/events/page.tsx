@@ -3,51 +3,46 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import PhotoGallery from '@/components/ui/PhotoGallery'
+import { useState, useEffect } from 'react'
+
+interface Event {
+  id: string
+  title: string
+  description: string
+  date: string
+  time: string
+  location: string
+  image: string
+  churchCenterUrl: string
+  isRecurring?: boolean
+}
 
 export default function EventsPage() {
-  // 2025 Optimized Events Data
-  const upcomingEvents = [
-    {
-      id: 1,
-      title: "Sunday Service",
-      description: "Join us for worship, fellowship, and an inspiring message that will strengthen your faith and connect you with God's purpose.",
-      date: "Every Sunday",
-      time: "10:00 AM",
-      location: "Destiny Church Main Campus",
-      image: "/uploads/02-events/Untitled-1555.jpg",
-      churchCenterUrl: "https://destinyokc.churchcenter.com/events/sunday-service"
-    },
-    {
-      id: 2,
-      title: "Community Outreach",
-      description: "Make a difference in our community as we serve together. A great opportunity to show God's love through action.",
-      date: "February 3, 2025",
-      time: "9:00 AM - 2:00 PM",
-      location: "Local Community Center",
-      image: "/uploads/02-events/Untitled-2464.jpg",
-      churchCenterUrl: "https://destinyokc.churchcenter.com/events/community-outreach"
-    },
-    {
-      id: 3,
-      title: "Youth Fall Retreat",
-      description: "A weekend of fun, fellowship, and spiritual growth for our youth. Don't miss this life-changing experience!",
-      date: "February 8-10, 2025",
-      time: "Friday 6:00 PM - Sunday 2:00 PM",
-      location: "Camp Victory",
-      image: "/uploads/02-events/Untitled-8099.jpg",
-      churchCenterUrl: "https://destinyokc.churchcenter.com/events/youth-retreat"
-    },
-    {
-      id: 4,
-      title: "Marriage Enrichment Workshop",
-      description: "Strengthen your marriage with practical tools and biblical principles. Open to all couples at any stage.",
-      date: "February 15, 2025",
-      time: "9:00 AM - 4:00 PM",
-      location: "Destiny Church - Fellowship Hall",
-      image: "/uploads/02-events/Untitled-8104.jpg",
-      churchCenterUrl: "https://destinyokc.churchcenter.com/events/marriage-workshop"
+  const [upcomingEvents, setUpcomingEvents] = useState<Event[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const response = await fetch('/api/events')
+        const data = await response.json()
+        
+        if (data.success) {
+          setUpcomingEvents(data.events)
+        } else {
+          setError('Failed to load events')
+        }
+      } catch (err) {
+        setError('Failed to load events')
+        console.error('Error fetching events:', err)
+      } finally {
+        setLoading(false)
+      }
     }
-  ]
+
+    fetchEvents()
+  }, [])
 
   return (
     <div className="min-h-screen bg-white">
@@ -68,8 +63,24 @@ export default function EventsPage() {
       {/* Upcoming Events Grid */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {upcomingEvents.map((event) => (
+          {loading ? (
+            <div className="text-center py-12">
+              <div className="animate-spin rounded-full h-12 w-12 border-4 border-blue-600 border-t-transparent mx-auto mb-4"></div>
+              <p className="text-gray-600">Loading upcoming events...</p>
+            </div>
+          ) : error ? (
+            <div className="text-center py-12">
+              <p className="text-red-600 mb-4">{error}</p>
+              <button 
+                onClick={() => window.location.reload()} 
+                className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700"
+              >
+                Try Again
+              </button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {upcomingEvents.map((event) => (
               <div key={event.id} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100">
                 <div className="relative h-64">
                   <Image
@@ -124,7 +135,8 @@ export default function EventsPage() {
                 </div>
               </div>
             ))}
-          </div>
+            </div>
+          )}
         </div>
       </section>
 
