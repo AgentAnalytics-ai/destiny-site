@@ -277,7 +277,7 @@ export default function AboutPage() {
                 </CardContent>
               </Card>
             </div>
-          </div>
+    </div>
         </Container>
       </section>
     </>
