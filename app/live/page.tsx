@@ -1,5 +1,6 @@
 'use client'
 
+// Resi Live Streaming Integration - Updated with Stream ID
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import ResiPlayer from '@/components/ui/ResiPlayer'
