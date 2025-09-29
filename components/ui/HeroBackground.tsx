@@ -89,19 +89,19 @@ export default function HeroBackground({ className = '' }: HeroBackgroundProps) 
 
   return (
     <div className={`${className} relative w-full h-full overflow-hidden`}>
-      <Image
-        src={currentPhoto.webViewLink}
-        alt={currentPhoto.name}
-        fill
-        style={{ objectFit: 'cover' }}
-        priority={currentPhotoIndex === 0} // Prioritize loading the first image
-        className="transition-opacity duration-1000 ease-in-out opacity-100"
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+      {/* Direct image path for reliability */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url('/uploads/01-hero-images/hero-worship-service.png')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
       />
       {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-black opacity-50"></div>
+      <div className="absolute inset-0 bg-black opacity-40"></div>
       {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
       
       {/* Animated overlay pattern */}
       <div className="absolute inset-0 opacity-20">

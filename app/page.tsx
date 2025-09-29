@@ -14,25 +14,25 @@ export default function HomePage() {
         <HeroBackground className="absolute inset-0 z-0" />
         
         {/* Hero Content */}
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-12 shadow-2xl">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white/95 backdrop-blur-md rounded-3xl p-16 shadow-2xl border border-white/20">
+            <h1 className="text-6xl md:text-7xl font-bold text-gray-900 mb-8 leading-tight">
               STIR UP YOUR FAITH
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
+            <p className="text-2xl md:text-3xl text-gray-700 mb-10 leading-relaxed">
               Welcome to Destiny Church<br />
-              <span className="text-blue-600 font-semibold">Where Hope, Faith, and Purpose Come Alive</span>
+              <span className="text-blue-600 font-bold">Where Hope, Faith, and Purpose Come Alive</span>
             </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <div className="flex flex-col sm:flex-row gap-6 justify-center">
                       <Link 
                         href="/contact" 
-                        className="bg-white/90 text-gray-700 border border-gray-300 px-8 py-4 rounded-lg text-lg font-medium hover:bg-white hover:shadow-md transition-all duration-200"
+                        className="bg-white text-gray-800 border-2 border-gray-300 px-10 py-5 rounded-xl text-xl font-semibold hover:bg-gray-50 hover:border-gray-400 hover:shadow-lg transition-all duration-300 transform hover:scale-105"
                       >
                         Plan a Visit
                       </Link>
                       <Link 
                         href="/give" 
-                        className="bg-white/90 text-blue-600 border border-gray-300 px-8 py-4 rounded-lg text-lg font-medium hover:bg-white hover:shadow-md transition-all duration-200"
+                        className="bg-blue-600 text-white border-2 border-blue-600 px-10 py-5 rounded-xl text-xl font-semibold hover:bg-blue-700 hover:border-blue-700 hover:shadow-lg transition-all duration-300 transform hover:scale-105"
                       >
                         Give
                       </Link>
@@ -43,7 +43,7 @@ export default function HomePage() {
 
       {/* Community Section */}
       {/* META UI EXPERT: Seamless Events Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
+      <section className="py-20 bg-white border-t border-gray-100">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Upcoming Events</h2>
