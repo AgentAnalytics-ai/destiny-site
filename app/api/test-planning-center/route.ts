@@ -65,7 +65,7 @@ export async function GET() {
       success: true,
       message: 'Planning Center API is working!',
       eventsCount: eventsData.data?.length || 0,
-      sampleEvents: eventsData.data?.slice(0, 2).map((event: any) => ({
+      sampleEvents: eventsData.data?.slice(0, 2).map((event: { id: string; attributes: { title: string; starts_at: string } }) => ({
         id: event.id,
         title: event.attributes.title,
         starts_at: event.attributes.starts_at

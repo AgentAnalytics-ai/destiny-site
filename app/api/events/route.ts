@@ -86,7 +86,7 @@ async function fetchPlanningCenterEvents() {
     const eventsData = await eventsResponse.json()
     
     // Transform Planning Center events to our format
-    return eventsData.data.map((event: any) => ({
+    return eventsData.data.map((event: { id: string; attributes: { title: string; description?: string; starts_at: string; ends_at?: string; location?: string } }) => ({
       id: event.id,
       title: event.attributes.title,
       description: event.attributes.description || 'Join us for this special event!',
