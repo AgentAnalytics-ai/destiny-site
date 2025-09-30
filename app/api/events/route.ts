@@ -3,25 +3,135 @@ import { NextResponse } from 'next/server'
 // Planning Center Events API Integration
 export async function GET() {
   try {
-    // For now, we'll create a dynamic system that generates realistic upcoming events
-    // Later, you can replace this with actual Planning Center API calls
+    // Try to fetch from Planning Center first
+    const planningCenterEvents = await fetchPlanningCenterEvents()
     
+    if (planningCenterEvents.length > 0) {
+      return NextResponse.json({
+        success: true,
+        events: planningCenterEvents,
+        source: 'planning-center',
+        lastUpdated: new Date().toISOString()
+      })
+    }
+    
+    // Fallback to generated events if Planning Center fails
     const today = new Date()
-    const upcomingEvents = generateUpcomingEvents(today)
+    const fallbackEvents = generateUpcomingEvents(today)
     
     return NextResponse.json({
       success: true,
-      events: upcomingEvents,
+      events: fallbackEvents,
+      source: 'fallback',
       lastUpdated: new Date().toISOString()
     })
   } catch (error) {
     console.error('Error fetching events:', error)
+    
+    // Final fallback
+    const today = new Date()
+    const fallbackEvents = generateUpcomingEvents(today)
+    
     return NextResponse.json({
-      success: false,
-      error: 'Failed to fetch events',
-      events: []
+      success: true,
+      events: fallbackEvents,
+      source: 'fallback',
+      error: 'Planning Center API unavailable, using fallback data'
     })
   }
+}
+
+async function fetchPlanningCenterEvents() {
+  const appId = process.env.PLANNING_CENTER_APP_ID
+  const secret = process.env.PLANNING_CENTER_SECRET
+  
+  if (!appId || !secret) {
+    console.log('Planning Center credentials not configured, using fallback')
+    return []
+  }
+  
+  try {
+    // Get access token
+    const tokenResponse = await fetch('https://api.planningcenteronline.com/oauth/token', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams({
+        grant_type: 'client_credentials',
+        client_id: appId,
+        client_secret: secret,
+      }),
+    })
+    
+    if (!tokenResponse.ok) {
+      throw new Error('Failed to get Planning Center token')
+    }
+    
+    const tokenData = await tokenResponse.json()
+    const accessToken = tokenData.access_token
+    
+    // Fetch events from Planning Center
+    const eventsResponse = await fetch('https://api.planningcenteronline.com/calendar/v2/events?where[starts_at]=future', {
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+    })
+    
+    if (!eventsResponse.ok) {
+      throw new Error('Failed to fetch Planning Center events')
+    }
+    
+    const eventsData = await eventsResponse.json()
+    
+    // Transform Planning Center events to our format
+    return eventsData.data.map((event: any) => ({
+      id: event.id,
+      title: event.attributes.title,
+      description: event.attributes.description || 'Join us for this special event!',
+      date: formatPlanningCenterDate(event.attributes.starts_at),
+      time: formatPlanningCenterTime(event.attributes.starts_at, event.attributes.ends_at),
+      location: event.attributes.location || 'Destiny Church',
+      image: '/uploads/02-events/Untitled-1555.jpg', // Default image
+      churchCenterUrl: `https://destinyokc.churchcenter.com/events/${event.id}`,
+      isRecurring: false
+    }))
+  } catch (error) {
+    console.error('Planning Center API error:', error)
+    return []
+  }
+}
+
+function formatPlanningCenterDate(dateString: string) {
+  const date = new Date(dateString)
+  return date.toLocaleDateString('en-US', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  })
+}
+
+function formatPlanningCenterTime(startDate: string, endDate?: string) {
+  const start = new Date(startDate)
+  const startTime = start.toLocaleTimeString('en-US', {
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true
+  })
+  
+  if (endDate) {
+    const end = new Date(endDate)
+    const endTime = end.toLocaleTimeString('en-US', {
+      hour: 'numeric',
+      minute: '2-digit',
+      hour12: true
+    })
+    return `${startTime} - ${endTime}`
+  }
+  
+  return startTime
 }
 
 function generateUpcomingEvents(baseDate: Date) {
