@@ -45,9 +45,6 @@ export default function Navigation() {
                     <Link href="/events" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200">
                       Events
                     </Link>
-                    <Link href="/gallery" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200">
-                      Gallery
-                    </Link>
                     <Link href="/give" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200">
                       Give
                     </Link>
@@ -84,9 +81,6 @@ export default function Navigation() {
               </Link>
               <Link href="/events" className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium transition-colors duration-200">
                 Events
-              </Link>
-              <Link href="/gallery" className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium transition-colors duration-200">
-                Gallery
               </Link>
               <Link href="/give" className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium transition-colors duration-200">
                 Give
